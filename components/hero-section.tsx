@@ -12,7 +12,7 @@ import FadeUp from "@/components/motions/fadeup";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden min-h-screen flex flex-col justify-center">
+    <section className="relative w-full overflow-hidden min-h-screen flex flex-col justify-center pt-20">
       {/* Background Image */}
       <Image
         src="/example-herobg.jpg"
@@ -64,7 +64,10 @@ export default function HeroSection() {
                 <ThumbsUp className="size-8 md:size-12 " />
                 Review
               </Link>
-              <Link href={"/"} className="flex flex-col items-center gap-1">
+              <Link
+                href={"/"}
+                className="flex flex-col items-center gap-1 text-nowrap"
+              >
                 <ClockFading className="size-8 md:size-12 " />
                 Open On
               </Link>

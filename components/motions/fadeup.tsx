@@ -23,6 +23,7 @@ const FadeUp = ({ children }: FadeUpProps) => {
         ease: "easeOut",
         delay: 0.2,
       }}
+      className="backdrop-blur-xs"
     >
       {children}
     </motion.div>

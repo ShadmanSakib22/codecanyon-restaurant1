@@ -26,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} ${sans.variable} antialiased`}>
+      <body
+        suppressHydrationWarning
+        className={`${playfair.variable} ${sans.variable} antialiased`}
+      >
         <Navbar />
         {children}
       </body>

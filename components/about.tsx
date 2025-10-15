@@ -19,7 +19,7 @@ const dishInfo: DishInfoProps[] = [
     imgalt: "Spicy sushi roll topped with seared salmon and eel sauce",
   },
   {
-    title: "Seasonal Sashimi Platter (Chefs' Choice)",
+    title: "Seasonal Sashimi Platter",
     desc: "A hand-selected assortment of five different seasonal fish.",
     price: "$24.00",
     imgurl: "https://images.unsplash.com/photo-1553621042-f6e147245754",
@@ -30,7 +30,7 @@ const dishInfo: DishInfoProps[] = [
 const about = () => {
   return (
     <section className="mt-10 md:mt-16 lg:mt-24 container grid md:grid-cols-2 gap-y-5 gap-x-20">
-      <div>
+      {/* <div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair mb-7">
           Today&apos;s Specials
         </h2>
@@ -59,7 +59,7 @@ const about = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
       <div>
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair">
           About

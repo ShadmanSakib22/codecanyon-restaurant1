@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HeroSection from "@/components/hero-section";
 import About from "@/components/about";
+import Menu from "@/components/menu";
 
 export default function Home() {
   return (
@@ -8,7 +9,8 @@ export default function Home() {
       <main>
         {/*Hero Section */}
         <HeroSection />
-        <About />
+        <Menu />
+        {/* <About /> */}
 
         <section className="mt-10 md:mt-16 lg:mt-24 container">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair">

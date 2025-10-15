@@ -43,7 +43,11 @@ export default function HeroSection() {
 
               {/*Buttons */}
               <div className="flex flex-col sm:flex-row gap-5 mt-10 mb-5">
-                <Button variant="secondary" size={"lg"}>
+                <Button
+                  variant="outline"
+                  className="bg-transparent! text-white hover:text-secondary/80"
+                  size={"lg"}
+                >
                   View Menu
                 </Button>
                 <Button variant="secondary" size={"lg"}>

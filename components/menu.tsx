@@ -1,3 +1,4 @@
+import { MenuList, MenuCategory } from "./menu-list";
 import { OffersCarousel, CarouselItem } from "./ui/offers-carousel";
 
 //mock data
@@ -36,11 +37,101 @@ const specialDishes: CarouselItem[] = [
   },
 ];
 
+//mock data -menu list
+const menuCategories: MenuCategory[] = [
+  {
+    name: "Classic Nigiri & Sashimi",
+    items: [
+      { name: "Maguro (Tuna)", price: 6.0, desc: "Finest quality red tuna." },
+      {
+        name: "Sake (Salmon)",
+        price: 5.5,
+        desc: "Fresh Atlantic salmon slice.",
+      },
+      {
+        name: "Unagi (Eel)",
+        price: 7.5,
+        desc: "Grilled eel with house-made sweet sauce.",
+      },
+      {
+        name: "Hamachi (Yellowtail)",
+        price: 6.5,
+        desc: "Light, buttery yellowtail, a house favorite.",
+      },
+      { name: "Ebi (Shrimp)", price: 4.5, desc: "Cooked shrimp." },
+    ],
+  },
+  {
+    name: "Specialty Rolls",
+    items: [
+      {
+        name: "Crispy Crunch Roll",
+        price: 15.0,
+        desc: "Shrimp tempura, avocado, topped with spicy mayo and flakes.",
+      },
+      {
+        name: "Kyoto Dragon Roll",
+        price: 17.5,
+        desc: "Eel and cucumber inside, avocado and eel sauce on top.",
+      },
+      {
+        name: "Spicy Tuna Volcano",
+        price: 14.5,
+        desc: "Spicy tuna, cucumber, topped with wasabi tobiko.",
+      },
+    ],
+  },
+  {
+    name: "Hot Kitchen & Soups",
+    items: [
+      {
+        name: "Tonkotsu Ramen",
+        price: 16.0,
+        desc: "Rich 18hr pork broth, chashu pork, egg, and nori.",
+      },
+      {
+        name: "Assorted Tempura",
+        price: 12.0,
+        desc: "Shrimp and seasonal vegetables, light batter.",
+      },
+      {
+        name: "Gyoza (Pork/Veg)",
+        price: 8.0,
+        desc: "Six pan-fried dumplings with ponzu dipping sauce.",
+      },
+      {
+        name: "Miso Soup",
+        price: 3.5,
+        desc: "Traditional soybean paste broth.",
+      },
+    ],
+  },
+];
+
 const Menu = () => {
   return (
     <section className="mt-10 md:mt-16 lg:mt-24 container">
       {/*Specials */}
       <OffersCarousel items={specialDishes} />
+      <div className="w-full h-px bg-gray-200 my-10" id="main-menu"></div>
+      {/*Menu */}
+      <h2 className="text-3xl md:text-4xl lg:text-5xl text-center font-playfair mb-5">
+        Menu
+      </h2>
+      <div className="flex gap-6">
+        <div className="lg:col-span-8">
+          <div className="space-y-12">
+            {menuCategories.map((category) => (
+              <MenuList key={category.name} category={category} />
+            ))}
+          </div>
+        </div>
+
+        <div className="flex-1">
+          gallery of different food items randomly. I will write the code for
+          this later
+        </div>
+      </div>
     </section>
   );
 };

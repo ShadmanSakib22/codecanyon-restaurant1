@@ -1,7 +1,7 @@
 import { MenuList, MenuCategory } from "./menu-list";
 import { OffersCarousel, CarouselItem } from "./ui/offers-carousel";
 
-//mock data
+// mock data
 const specialDishes: CarouselItem[] = [
   {
     id: "1",
@@ -37,7 +37,7 @@ const specialDishes: CarouselItem[] = [
   },
 ];
 
-//mock data -menu list
+// mock data - menu list
 const menuCategories: MenuCategory[] = [
   {
     name: "Classic Nigiri & Sashimi",
@@ -110,28 +110,16 @@ const menuCategories: MenuCategory[] = [
 
 const Menu = () => {
   return (
-    <section className="mt-10 md:mt-16 lg:mt-24 container">
-      {/*Specials */}
+    <section className="mt-10 md:mt-24 lg:mt-32 container">
+      {/* Specials */}
       <OffersCarousel items={specialDishes} />
-      <div className="w-full h-px bg-gray-200 my-10" id="main-menu"></div>
-      {/*Menu */}
-      <h2 className="text-3xl md:text-4xl lg:text-5xl text-center font-playfair mb-5">
-        Menu
-      </h2>
-      <div className="flex gap-6">
-        <div className="lg:col-span-8">
-          <div className="space-y-12">
-            {menuCategories.map((category) => (
-              <MenuList key={category.name} category={category} />
-            ))}
-          </div>
-        </div>
 
-        <div className="flex-1">
-          gallery of different food items randomly. I will write the code for
-          this later
-        </div>
-      </div>
+      <div className="w-full h-px bg-gray-200 my-8 md:my-12" id="main-menu" />
+
+      {/* Menu */}
+      {menuCategories.map((category) => (
+        <MenuList key={category.name} category={category} />
+      ))}
     </section>
   );
 };

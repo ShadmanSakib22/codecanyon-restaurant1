@@ -1,4 +1,13 @@
+"use client";
+
 import React from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 export interface MenuItem {
   name: string;
   price: number;
@@ -6,34 +15,60 @@ export interface MenuItem {
 }
 
 export interface MenuCategory {
-  name: string;
+  name?: string;
   items: MenuItem[];
 }
 
-export const MenuList = ({ category }: { category: MenuCategory }) => {
+export const MenuList = ({ category }: { category?: MenuCategory }) => {
+  const categoryName = category?.name || "Items";
+  const items = category?.items || [];
+
+  // Split items roughly in half for two columns on large screens
+  const midIndex = Math.ceil(items.length / 2);
+  const firstCol = items.slice(0, midIndex);
+  const secondCol = items.slice(midIndex);
+
   return (
-    <>
-      <div className="mb-8">
-        <h3 className="text-2xl font-bold text-foreground p-2 bg-foreground/40 backdrop-blur-md mb-4">
-          {category.name}
-        </h3>
-        <div className="space-y-4">
-          {category.items.map((item, index) => (
-            <div key={index} className="flex justify-between items-start group">
-              <div className="pr-4">
-                <p className="text-lg font-semibold text-gray-800 group-hover:text-red-600 transition-colors">
-                  {item.name}
-                </p>
-                <p className="text-sm text-gray-500 max-w-lg">{item.desc}</p>
+    <Accordion type="single" collapsible defaultValue="item-0">
+      <AccordionItem value="item-0" className="border-none">
+        <AccordionTrigger className="p-2 bg-foreground/10 backdrop-blur-md mb-4 rounded-md text-lg md:text-xl text-center font-medium text-foreground hover:no-underline">
+          {categoryName}
+        </AccordionTrigger>
+        <AccordionContent>
+          {/* Responsive grid for menu items */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {[firstCol, secondCol].map((colItems, colIndex) => (
+              <div key={colIndex} className="space-y-4">
+                {colItems.length > 0 ? (
+                  colItems.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex justify-between items-start group"
+                    >
+                      <div className="pr-4">
+                        <p className="text-sm md:text-base text-foreground/70 group-hover:text-foreground transition-colors">
+                          {item.name}
+                        </p>
+                        <p className="text-sm text-foreground/70 max-w-lg line-clamp-2">
+                          {item.desc}
+                        </p>
+                      </div>
+                      <span className="text-base md:text-lg font-medium flex-shrink-0 text-foreground/70 group-hover:text-foreground">
+                        ${item.price.toFixed(2)}
+                      </span>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-sm text-foreground/60 italic">
+                    No items available.
+                  </p>
+                )}
               </div>
-              <span className="text-lg font-bold text-red-600 flex-shrink-0">
-                ${item.price.toFixed(2)}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
+            ))}
+          </div>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   );
 };
 

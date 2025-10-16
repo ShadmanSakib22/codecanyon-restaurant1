@@ -1,11 +1,12 @@
 import { MenuList, MenuCategory } from "@/components/ui/menu-list";
-import { OffersCarousel, CarouselItem } from "@/components/ui/offers-carousel";
+import { OffersCarousel } from "@/components/ui/offers-carousel";
+import { CardItemProps } from "@/components/ui/item-card";
 import { HandCoins, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FadeUp from "@/components/motions/fadeup";
 
 // mock data - featured/specials
-const specialDishes: CarouselItem[] = [
+const specialDishes: CardItemProps[] = [
   {
     id: "1",
     title: "The Dragon's Breath Roll",
@@ -32,6 +33,14 @@ const specialDishes: CarouselItem[] = [
   },
   {
     id: "4",
+    title: "Seasonal Sashimi Platter",
+    subtitle: "A hand-selected assortment of five different seasonal fish.",
+    price: "$24.00",
+    rating: 5,
+    imageUrl: "https://images.unsplash.com/photo-1553621042-f6e147245754",
+  },
+  {
+    id: "5",
     title: "Seasonal Sashimi Platter",
     subtitle: "A hand-selected assortment of five different seasonal fish.",
     price: "$24.00",

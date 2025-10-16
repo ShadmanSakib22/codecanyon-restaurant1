@@ -1,5 +1,6 @@
 import HeroSection from "@/components/hero-section";
 import Menu from "@/components/menu";
+import MasonryGridDemo from "@/components/testimonial";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         {/*Hero Section */}
         <HeroSection />
         <Menu />
+        <MasonryGridDemo />
       </main>
     </div>
   );

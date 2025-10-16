@@ -1,7 +1,9 @@
-import { MenuList, MenuCategory } from "./menu-list";
-import { OffersCarousel, CarouselItem } from "./ui/offers-carousel";
+import { MenuList, MenuCategory } from "@/components/ui/menu-list";
+import { OffersCarousel, CarouselItem } from "@/components/ui/offers-carousel";
+import { HandCoins } from "lucide-react";
+import FadeUp from "@/components/motions/fadeup";
 
-// mock data
+// mock data - featured/specials
 const specialDishes: CarouselItem[] = [
   {
     id: "1",
@@ -114,12 +116,17 @@ const Menu = () => {
       {/* Specials */}
       <OffersCarousel items={specialDishes} />
 
-      <div className="w-full h-px bg-gray-200 my-8 md:my-12" id="main-menu" />
+      <hr className="mt-10 mb-8" />
 
       {/* Menu */}
-      {menuCategories.map((category) => (
-        <MenuList key={category.name} category={category} />
-      ))}
+      <FadeUp>
+        <h2 className="text-3xl font-extrabold tracking-tight text-foreground mb-5 text-center md:text-left">
+          Menu Card <HandCoins className="inline-flex" />
+        </h2>
+        {menuCategories.map((category) => (
+          <MenuList key={category.name} category={category} />
+        ))}
+      </FadeUp>
     </section>
   );
 };

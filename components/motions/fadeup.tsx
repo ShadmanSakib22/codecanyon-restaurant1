@@ -10,7 +10,9 @@ const FadeUp = ({ children }: FadeUpProps) => {
   return (
     <motion.div
       initial="hidden"
-      animate="visible"
+      whileInView="visible"
+      // 0.1 or "some" is ideal
+      viewport={{ once: true, amount: "some" }}
       variants={{
         hidden: { opacity: 0, y: 50 },
         visible: {

@@ -3,7 +3,8 @@ import { OffersCarousel } from "@/components/ui/offers-carousel";
 import { CardItemProps } from "@/components/ui/item-card";
 import { HandCoins, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import FadeUp from "@/components/motions/fadeup";
+import MotionReveal from "@/components/ui/motion-reveal";
+import Link from "next/link";
 
 // mock data - featured/specials
 const specialDishes: CardItemProps[] = [
@@ -133,7 +134,10 @@ const Menu = () => {
               Limited Time Offer
             </p>
           </div>
-          <h2 className="text-3xl font-extrabold tracking-tight text-foreground">
+          <h2
+            id="specials"
+            className="text-3xl font-extrabold tracking-tight text-foreground"
+          >
             Today&apos;s Specials
           </h2>
           <p className="mt-3 mb-6 text-base text-muted-foreground max-w-sm lg:max-w-none">
@@ -141,10 +145,11 @@ const Menu = () => {
             seasonal dishes. Experience the freshest cuts, signature rolls, and
             savory ramen, available only for a limited time.
           </p>
-
-          <Button variant="secondary" className="border">
-            Reserve Now
-          </Button>
+          <Link href="#reserve">
+            <Button variant="secondary" className="border">
+              Reserve Now
+            </Button>
+          </Link>
         </div>
         {/* Right: Carousel Section */}
         <div className="relative lg:col-span-9">
@@ -155,14 +160,17 @@ const Menu = () => {
       <hr className="mt-10 mb-8" />
 
       {/* Menu */}
-      <FadeUp>
-        <h2 className="text-3xl font-extrabold tracking-tight text-foreground mb-5 text-center md:text-left">
+      <MotionReveal>
+        <h2
+          id="menu"
+          className="text-3xl font-extrabold tracking-tight text-foreground mb-5 text-center md:text-left"
+        >
           Menu Card <HandCoins className="inline-flex" />
         </h2>
         {menuCategories.map((category) => (
           <MenuList key={category.name} category={category} />
         ))}
-      </FadeUp>
+      </MotionReveal>
     </section>
   );
 };

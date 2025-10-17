@@ -93,3 +93,8 @@
     color: var(--foreground);
   }
 }
+
+/* target all elements that have an ID, anchor links have a margin top */
+[id] {
+  scroll-margin-top: 110px;
+}

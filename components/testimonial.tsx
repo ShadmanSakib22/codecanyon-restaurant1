@@ -130,13 +130,13 @@ const MasonryGridDemo = () => {
   }, []);
 
   return (
-    <section className="mt-10 md:mt-24 lg:mt-32 container">
+    <section id="reviews" className="mt-10 md:mt-24 lg:mt-32 container">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-extrabold tracking-tight text-foreground mb-2 text-center">
-          What People Are Saying
+          Shared Moments and Reviews
         </h2>
         <p className="mb-8 text-foreground/70 text-center">
-          Add your own Review to our{" "}
+          Share your own Review or moment to our{" "}
           <a href="" className="underline underline-offset-4">
             Social
           </a>{" "}

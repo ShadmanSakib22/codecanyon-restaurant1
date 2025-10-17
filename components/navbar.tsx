@@ -76,20 +76,23 @@ const Navbar = () => {
           <ul className="hidden md:flex items-center gap-8">
             <li>
               <Link
-                href="/about"
+                href="#specials"
                 className="hover:underline underline-offset-4"
               >
-                About
+                Specials
               </Link>
             </li>
             <li>
-              <Link href="/menu" className="hover:underline underline-offset-4">
+              <Link href="#menu" className="hover:underline underline-offset-4">
                 Menu
               </Link>
             </li>
             <li>
-              <Link href="/menu" className="hover:underline underline-offset-4">
-                Specials
+              <Link
+                href="#reviews"
+                className="hover:underline underline-offset-4"
+              >
+                Reviews
               </Link>
             </li>
 
@@ -100,7 +103,7 @@ const Navbar = () => {
 
             {/* Contact Button */}
             <li>
-              <Link href="/contact" passHref>
+              <Link href="#contact" passHref>
                 <Button
                   className="font-semibold min-w-auto"
                   variant={isTop ? "secondary" : "default"}
@@ -156,16 +159,16 @@ const Navbar = () => {
             <ul className="space-y-6">
               <li>
                 <Link
-                  href="/about"
+                  href="#specials"
                   onClick={closeMobileMenu}
                   className="block text-lg font-medium text-foreground py-2 border-b border-foreground/40 hover:opacity-60"
                 >
-                  About
+                  Specials
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/menu"
+                  href="#menu"
                   onClick={closeMobileMenu}
                   className="block text-lg font-medium text-foreground py-2 border-b border-foreground/40 hover:opacity-60"
                 >
@@ -174,11 +177,11 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  href="/menu"
+                  href="#reviews"
                   onClick={closeMobileMenu}
                   className="block text-lg font-medium text-foreground py-2 border-b border-foreground/40 hover:opacity-60"
                 >
-                  Specials
+                  Reviews
                 </Link>
               </li>
             </ul>
@@ -189,7 +192,7 @@ const Navbar = () => {
                 <LanguageDropdown isTop={false} />
               </div>
 
-              <Link href="/contact" onClick={closeMobileMenu} className="block">
+              <Link href="#contact" onClick={closeMobileMenu} className="block">
                 <Button className="w-full font-semibold" variant="default">
                   <PhoneCall className="w-4 h-4 mr-2" /> Contact Us
                 </Button>

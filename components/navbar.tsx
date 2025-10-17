@@ -4,8 +4,10 @@ import Link from "next/link";
 import { PhoneCall, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LanguageDropdown from "@/components/ui/lang-dropdown";
+import { useTranslation } from "@/lib/i18n/translation-context";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const [isTop, setIsTop] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -67,9 +69,9 @@ const Navbar = () => {
         }
       >
         <div className="container flex justify-between items-center">
-          {/* Brand/Logo Name or Image */}
+          {/* Brand/Logo Name or Image - fetch from cms if image exist, display img. else display text*/}
           <Link href="/" className="text-xl font-bold tracking-wider">
-            Logo
+            {t("common.logo")}
           </Link>
 
           {/* Desktop Navigation Links and Actions */}
@@ -79,12 +81,12 @@ const Navbar = () => {
                 href="#specials"
                 className="hover:underline underline-offset-4"
               >
-                Specials
+                {t("common.specials")}
               </Link>
             </li>
             <li>
               <Link href="#menu" className="hover:underline underline-offset-4">
-                Menu
+                {t("common.menu")}
               </Link>
             </li>
             <li>
@@ -92,7 +94,7 @@ const Navbar = () => {
                 href="#reviews"
                 className="hover:underline underline-offset-4"
               >
-                Reviews
+                {t("common.reviews")}
               </Link>
             </li>
 
@@ -108,7 +110,7 @@ const Navbar = () => {
                   className="font-semibold min-w-auto"
                   variant={isTop ? "secondary" : "default"}
                 >
-                  <PhoneCall /> Contact Us
+                  <PhoneCall /> {t("common.contactUs")}
                 </Button>
               </Link>
             </li>
@@ -118,7 +120,7 @@ const Navbar = () => {
           <button
             onClick={toggleMobileMenu}
             className="md:hidden p-2 rounded-md transition-colors duration-200 hover:bg-secondary/10"
-            aria-label="Toggle mobile menu"
+            aria-label={t("navbar.ariaToggleMenu")}
             aria-expanded={isMobileMenuOpen}
           >
             {!isMobileMenuOpen && (
@@ -143,12 +145,12 @@ const Navbar = () => {
           <div className="flex gap-5 mb-7">
             {/* Brand/Logo Name or Image */}
             <Link href="/" className="text-2xl font-bold tracking-wider">
-              Logo
+              {t("common.logo")}
             </Link>
             <button
               onClick={toggleMobileMenu}
               className="ml-auto md:hidden p-2 rounded-md transition-colors duration-200 hover:bg-secondary/10"
-              aria-label="Toggle mobile menu"
+              aria-label={t("navbar.ariaToggleMenu")}
               aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen && <X className={`w-6 h-6 text-foreground`} />}
@@ -163,7 +165,7 @@ const Navbar = () => {
                   onClick={closeMobileMenu}
                   className="block text-lg font-medium text-foreground py-2 border-b border-foreground/40 hover:opacity-60"
                 >
-                  Specials
+                  {t("common.specials")}
                 </Link>
               </li>
               <li>
@@ -172,7 +174,7 @@ const Navbar = () => {
                   onClick={closeMobileMenu}
                   className="block text-lg font-medium text-foreground py-2 border-b border-foreground/40 hover:opacity-60"
                 >
-                  Menu
+                  {t("common.menu")}
                 </Link>
               </li>
               <li>
@@ -181,7 +183,7 @@ const Navbar = () => {
                   onClick={closeMobileMenu}
                   className="block text-lg font-medium text-foreground py-2 border-b border-foreground/40 hover:opacity-60"
                 >
-                  Reviews
+                  {t("common.reviews")}
                 </Link>
               </li>
             </ul>
@@ -194,7 +196,7 @@ const Navbar = () => {
 
               <Link href="#contact" onClick={closeMobileMenu} className="block">
                 <Button className="w-full font-semibold" variant="default">
-                  <PhoneCall className="w-4 h-4 mr-2" /> Contact Us
+                  <PhoneCall className="w-4 h-4 mr-2" /> {t("common.contactUs")}
                 </Button>
               </Link>
             </div>
@@ -205,7 +207,7 @@ const Navbar = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30 md:hidden"
+          className="fixed inset-0 bg-foreground/20 backdrop-blur-sm z-30 md:hidden"
           onClick={closeMobileMenu}
         />
       )}

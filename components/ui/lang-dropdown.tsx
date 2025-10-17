@@ -1,26 +1,37 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronDown, Globe } from "lucide-react";
+import { useTranslation } from "@/lib/i18n/translation-context";
 
 interface LanguageDropdownProps {
   isTop: boolean;
-  languages?: { code: string; name: string }[];
-  defaultLang?: string;
+  languages?: { code: string; nameKey: string }[];
 }
+
+const defaultLanguages = [
+  { code: "en", nameKey: "language.english" },
+  { code: "jp", nameKey: "language.japanese" },
+];
 
 const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
   isTop,
-  languages = [
-    { code: "EN", name: "English" },
-    { code: "JP", name: "Japanese" },
-  ],
-  defaultLang = "EN",
+  languages = defaultLanguages,
 }) => {
+  // Use the translation hook to access context values
+  const { language, setLanguage, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState(defaultLang);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close when clicking outside
+  const handleSelectLanguage = useCallback(
+    (code: string) => {
+      setLanguage(code as "en" | "jp");
+      setIsOpen(false);
+    },
+    [setLanguage]
+  );
+
+  // --- Handlers for Closing Dropdown ---
+  // Handle closing on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -33,31 +44,45 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+  // Handle closing on Escape key press (Accessibility improvement)
+  useEffect(() => {
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("keydown", handleKeydown);
+    return () => document.removeEventListener("keydown", handleKeydown);
+  }, []);
 
-  const handleSelectLanguage = (code: string) => {
-    setLanguage(code);
-    setIsOpen(false);
+  // --- Dynamic Classes for Styling ---
+  const baseClasses = {
+    trigger: isTop
+      ? "text-secondary hover:bg-secondary/10 focus:ring-secondary/50"
+      : "text-primary hover:bg-primary/10 focus:ring-primary/50",
+    activeItem: "bg-accent text-accent-foreground",
+    inactiveItem: "text-foreground hover:bg-muted/50",
   };
 
-  const textClass = isTop ? "text-secondary" : "text-primary";
-  const hoverClass = isTop ? "hover:bg-secondary/10" : "hover:bg-primary/10";
-  const focusClass = isTop
-    ? "focus:ring-secondary/50"
-    : "focus:ring-primary/50";
+  const currentLanguageName = t(
+    languages.find((lang) => lang.code === language)?.nameKey ||
+      "language.english"
+  );
 
   return (
     <div className="relative inline-block text-left" ref={dropdownRef}>
-      {/* Trigger */}
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`flex items-center justify-between gap-1 w-[270px] md:w-24 px-3 py-2 rounded-md font-medium
-          transition-all duration-200 ${textClass} ${hoverClass}
-          focus:outline-none focus:ring-1 ${focusClass}
+        aria-expanded={isOpen}
+        aria-controls="language-menu"
+        className={`flex items-center justify-between gap-1 md:w-28 px-3 py-2 rounded-md font-medium
+          transition-all duration-200 focus:outline-none focus:ring-1 
+          ${baseClasses.trigger}
         `}
       >
         <Globe className="w-4 h-4" />
-        <span>{language}</span>
+        <span className="text-nowrap">{currentLanguageName}</span>
         <ChevronDown
           className={`w-3 h-3 transition-transform duration-200 ${
             isOpen ? "rotate-180" : "rotate-0"
@@ -65,9 +90,11 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
         />
       </button>
 
-      {/* Dropdown Menu */}
       <div
-        className={`absolute right-0 mt-2 w-40 rounded-lg shadow-lg ring-1 ring-border bg-background z-20
+        id="language-menu"
+        role="menu"
+        aria-orientation="vertical"
+        className={`absolute right-0 mt-2 w-40 p-1 rounded-lg shadow-xl ring-1 ring-border bg-background z-30 
           transition-all duration-200 origin-top-right
           ${
             isOpen
@@ -80,16 +107,18 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
           <button
             key={lang.code}
             onClick={() => handleSelectLanguage(lang.code)}
+            aria-checked={language === lang.code}
+            role="menuitemradio"
             className={`flex w-full items-center justify-between px-4 py-2 text-sm rounded-md
               transition-colors duration-150
               ${
                 language === lang.code
-                  ? "bg-accent text-accent-foreground"
-                  : "text-foreground hover:bg-muted/50"
+                  ? baseClasses.activeItem
+                  : baseClasses.inactiveItem
               }
             `}
           >
-            {lang.name}
+            {t(lang.nameKey)}
             {language === lang.code && (
               <span className="text-xs opacity-70">✓</span>
             )}

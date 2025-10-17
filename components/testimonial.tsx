@@ -1,8 +1,8 @@
-// summary
 "use client";
 import * as React from "react";
 import Image from "next/image";
 import { MasonryGrid } from "@/components/ui/image-testimonial-grid";
+import { useTranslation } from "@/lib/i18n/translation-context";
 
 const testimonials = [
   {
@@ -83,10 +83,10 @@ const TestimonialCard = ({
           "https://placehold.co/800x600/1a1a1a/ffffff?text=Image";
       }}
     />
-    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
-    <div className="absolute top-0 left-0 p-4 text-white">
+    <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 via-fofrom-foreground/20 to-transparent" />
+    <div className="absolute top-0 left-0 p-4 text-background">
       <div className="flex items-center gap-3 mb-2">
-        <div className="relative w-8 h-8 rounded-full border-2 border-white/80 overflow-hidden">
+        <div className="relative w-8 h-8 rounded-full border-2 border-background/80 overflow-hidden">
           <Image
             src={profileImage}
             alt={name}
@@ -109,6 +109,7 @@ const TestimonialCard = ({
 );
 
 const MasonryGridDemo = () => {
+  const { t } = useTranslation();
   const [columns, setColumns] = React.useState(4);
 
   const getColumns = (width: number) => {
@@ -133,14 +134,10 @@ const MasonryGridDemo = () => {
     <section id="reviews" className="mt-10 md:mt-24 lg:mt-32 container">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-extrabold tracking-tight text-foreground mb-2 text-center">
-          Shared Moments and Reviews
+          {t("testimonial.sharedMomentsAndReviews")}
         </h2>
         <p className="mb-8 text-foreground/70 text-center">
-          Share your own Review or moment to our{" "}
-          <a href="" className="underline underline-offset-4">
-            Social
-          </a>{" "}
-          page or google!
+          {t("testimonial.testimonialDescription")}
         </p>
         <MasonryGrid columns={columns} gap={4}>
           {testimonials.map((card) => (

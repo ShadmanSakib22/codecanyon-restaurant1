@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -9,8 +10,10 @@ import {
   ThumbsUp,
 } from "lucide-react";
 import MotionReveal from "@/components/ui/motion-reveal";
+import { useTranslation } from "@/lib/i18n/translation-context";
 
 export default function HeroSection() {
+  const { t } = useTranslation();
   //Todo: fetch from sanity
   const map_url =
     "https://www.google.com/maps/place/North+South+University/@23.8151107,90.4229817,17z/data=!3m1!4b1!4m6!3m5!1s0x3755c64c103a8093:0xd660a4f50365294a!8m2!3d23.8151107!4d90.4255566!16zL20vMDVqbXI1?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D";
@@ -36,14 +39,14 @@ export default function HeroSection() {
           <div className="container py-8 flex flex-col sm:flex-row gap-5">
             <div className="max-w-3xl ">
               <div className="px-4 py-1.5 rounded-full min-w-[160px] border inline-flex text-secondary text-sm backdrop-blur-md">
-                Peak Hour | 12:00 - 14:00
+                {t("hero.peakHour")}
               </div>
 
               <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-medium text-secondary leading-tight drop-shadow-lg">
-                Experience Authentic Japanese Flavors
+                {t("hero.title")}
               </h1>
               <p className="mt-6 text-xl lg:text-2xl text-secondary/90 leading-relaxed">
-                Delight in every bite, handcrafted with tradition.
+                {t("hero.subtitle")}
               </p>
 
               {/*Buttons */}
@@ -54,12 +57,13 @@ export default function HeroSection() {
                     className="bg-transparent! text-white hover:text-secondary/80"
                     size={"lg"}
                   >
-                    View Menu
+                    {t("common.viewMenu")}
                   </Button>
                 </Link>
                 <Link href="#reserve">
                   <Button variant="secondary" size={"lg"}>
-                    <CalendarCheck2 className="size-5" /> Reserve Now
+                    <CalendarCheck2 className="size-5" />{" "}
+                    {t("common.reserveNow")}
                   </Button>
                 </Link>
               </div>
@@ -67,7 +71,7 @@ export default function HeroSection() {
             <div className="flex flex-row sm:flex-col gap-6 ml-auto sm:border-l-4 border-dashed pl-4 md:pl-8 text-secondary">
               <Link href={"/"} className="flex flex-col items-center gap-1">
                 <Instagram className="size-8 md:size-12 " />
-                Social
+                {t("common.social")}
               </Link>
               <Link
                 href={map_url}
@@ -76,7 +80,7 @@ export default function HeroSection() {
                 className="flex flex-col items-center gap-1"
               >
                 <MapPin className="size-8 md:size-12 " />
-                Location
+                {t("common.location")}
               </Link>
               <Link
                 href={review_url}
@@ -85,14 +89,14 @@ export default function HeroSection() {
                 className="flex flex-col items-center gap-1"
               >
                 <ThumbsUp className="size-8 md:size-12 " />
-                Review
+                {t("common.review")}
               </Link>
               <Link
                 href={"#op-hrs"}
                 className="flex flex-col items-center gap-1 text-nowrap"
               >
                 <ClockFading className="size-8 md:size-12 " />
-                Open On
+                {t("common.openOn")}
               </Link>
             </div>
           </div>

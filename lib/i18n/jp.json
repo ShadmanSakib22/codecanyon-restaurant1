@@ -1,0 +1,76 @@
+{
+  "common": {
+    "logo": "ロゴ",
+    "contactUs": "お問い合わせ",
+    "viewMenu": "メニューを見る",
+    "reserveNow": "今すぐ予約",
+    "social": "ソーシャル",
+    "location": "店舗情報",
+    "review": "レビュー",
+    "reviews": "レビュー",
+    "menu": "メニュー",
+    "specials": "おすすめ",
+    "openOn": "営業日",
+    "person": "名様",
+    "people": "名様",
+    "lunch": "ランチ",
+    "dinner": "ディナー",
+    "weekday": "(月 - 金)",
+    "weekend": "(土 - 日)",
+    "lastSeating": "ラストオーダーは閉店の30分前です。"
+  },
+  "navbar": {
+    "ariaToggleMenu": "モバイルメニューを切り替える"
+  },
+  "hero": {
+    "peakHour": "ピークアワー | 12:00 - 14:00",
+    "title": "本物の日本の味を体験してください",
+    "subtitle": "伝統の技が光る、一口ごとの喜びを。"
+  },
+  "menu": {
+    "limitedTimeOffer": "期間限定メニュー",
+    "todaysSpecials": "本日のおすすめ",
+    "specialsDescription": "熟練の寿司職人が、希少な旬の食材を使用した厳選メニューをご用意しました。新鮮なネタ、特製ロール、そして風味豊かなラーメンを期間限定でお楽しみください。",
+    "menuCard": "メニューカード"
+  },
+  "contact": {
+    "getInTouch": "お問い合わせ",
+    "phone": "(123) 456-7890",
+    "email": "reserve@sushibar.com",
+    "address": "日本、東京、桜通り101番地",
+    "openingHours": "営業時間",
+    "lunchHours": "11:30 AM – 2:30 PM",
+    "dinnerWeekday": "5:30 PM – 10:00 PM",
+    "dinnerWeekend": "5:00 PM – 11:00 PM"
+  },
+  "reservation": {
+    "bookTable": "テーブルを予約する",
+    "bookTableSubtitle": "忘れられない食事体験のために、席を確保してください。",
+    "fullName": "氏名",
+    "namePlaceholder": "山田 太郎",
+    "numberOfGuests": "人数",
+    "largerPartyNote": "10名様以上の団体予約はお電話にて承ります。",
+    "date": "日付",
+    "time": "時間",
+    "specialRequests": "特別なご要望 (任意)",
+    "specialRequestsPlaceholder": "食事制限、座席の希望など。",
+    "confirmReservation": "予約を確定する",
+    "confirmationNote": "ご予約内容の確認のため、後ほどお電話いたします。"
+  },
+  "testimonial": {
+    "sharedMomentsAndReviews": "共有された瞬間とレビュー",
+    "testimonialDescription": "お客様のレビューや瞬間をソーシャルページまたはGoogleで共有してください！"
+  },
+  "footer": {
+    "copyright": "© 2025 Xレストラン. 無断複写・転載を禁じます。",
+    "developer": "シャドマン・サキブ"
+  },
+  "metadata": {
+    "title": "レストラン名",
+    "description": "レストランの説明"
+  },
+  "language": {
+    "english": "英語",
+    "japanese": "日本語"
+  }
+}

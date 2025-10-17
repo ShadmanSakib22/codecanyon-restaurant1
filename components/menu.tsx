@@ -1,3 +1,4 @@
+"use client";
 import { MenuList, MenuCategory } from "@/components/ui/menu-list";
 import { OffersCarousel } from "@/components/ui/offers-carousel";
 import { CardItemProps } from "@/components/ui/item-card";
@@ -5,6 +6,7 @@ import { HandCoins, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MotionReveal from "@/components/ui/motion-reveal";
 import Link from "next/link";
+import { useTranslation } from "@/lib/i18n/translation-context";
 
 // mock data - featured/specials
 const specialDishes: CardItemProps[] = [
@@ -122,32 +124,31 @@ const menuCategories: MenuCategory[] = [
 ];
 
 const Menu = () => {
+  const { t } = useTranslation();
   return (
     <section className="mt-10 md:mt-24 lg:mt-32 container">
       {/* Specials */}
       <div className="grid grid-cols-1 gap-x-6 lg:grid-cols-12 items-start">
         {/* Left: Offer Section (CTA and Description) */}
         <div className="flex flex-col items-center text-center lg:col-span-3 lg:items-start lg:text-left p-4 lg:p-0">
-          <div className="flex items-center gap-2 mb-2 rounded-2xl py-1 px-2.5 border bg-black/5 backdrop-blur-xs">
+          <div className="flex items-center gap-2 mb-2 rounded-2xl py-1 px-2.5 border bg-foreground/5 backdrop-blur-xs">
             <UtensilsCrossed className="h-5 w-5" />
             <p className="text-xs font-medium uppercase tracking-wider">
-              Limited Time Offer
+              {t("menu.limitedTimeOffer")}
             </p>
           </div>
           <h2
             id="specials"
             className="text-3xl font-extrabold tracking-tight text-foreground"
           >
-            Today&apos;s Specials
+            {t("menu.todaysSpecials")}
           </h2>
           <p className="mt-3 mb-6 text-base text-muted-foreground max-w-sm lg:max-w-none">
-            Our master sushi chefs have prepared a selection of rare and
-            seasonal dishes. Experience the freshest cuts, signature rolls, and
-            savory ramen, available only for a limited time.
+            {t("menu.specialsDescription")}
           </p>
           <Link href="#reserve">
             <Button variant="secondary" className="border">
-              Reserve Now
+              {t("common.reserveNow")}
             </Button>
           </Link>
         </div>
@@ -165,7 +166,7 @@ const Menu = () => {
           id="menu"
           className="text-3xl font-extrabold tracking-tight text-foreground mb-5 text-center md:text-left"
         >
-          Menu Card <HandCoins className="inline-flex" />
+          {t("menu.menuCard")} <HandCoins className="inline-flex" />
         </h2>
         {menuCategories.map((category) => (
           <MenuList key={category.name} category={category} />

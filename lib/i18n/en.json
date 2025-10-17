@@ -1,0 +1,76 @@
+{
+  "common": {
+    "logo": "Logo",
+    "contactUs": "Contact Us",
+    "viewMenu": "View Menu",
+    "reserveNow": "Reserve Now",
+    "social": "Social",
+    "location": "Location",
+    "review": "Review",
+    "reviews": "Reviews",
+    "menu": "Menu",
+    "specials": "Specials",
+    "openOn": "Open On",
+    "person": "Person",
+    "people": "People",
+    "lunch": "Lunch",
+    "dinner": "Dinner",
+    "weekday": "(Mon - Fri)",
+    "weekend": "(Sat - Sun)",
+    "lastSeating": "Last seating is 30 minutes before closing."
+  },
+  "navbar": {
+    "ariaToggleMenu": "Toggle mobile menu"
+  },
+  "hero": {
+    "peakHour": "Peak Hour | 12:00 - 14:00",
+    "title": "Experience Authentic Japanese Flavors",
+    "subtitle": "Delight in every bite, handcrafted with tradition."
+  },
+  "menu": {
+    "limitedTimeOffer": "Limited Time Offer",
+    "todaysSpecials": "Today's Specials",
+    "specialsDescription": "Our master sushi chefs have prepared a selection of rare and seasonal dishes. Experience the freshest cuts, signature rolls, and savory ramen, available only for a limited time.",
+    "menuCard": "Menu Card"
+  },
+  "contact": {
+    "getInTouch": "Get in Touch",
+    "phone": "(123) 456-7890",
+    "email": "reserve@sushibar.com",
+    "address": "101 Cherry Blossom St, Tokyo, Japan",
+    "openingHours": "Opening Hours",
+    "lunchHours": "11:30 AM – 2:30 PM",
+    "dinnerWeekday": "5:30 PM – 10:00 PM",
+    "dinnerWeekend": "5:00 PM – 11:00 PM"
+  },
+  "reservation": {
+    "bookTable": "Book a Table",
+    "bookTableSubtitle": "Secure your spot for an unforgettable dining experience.",
+    "fullName": "Full Name",
+    "namePlaceholder": "John Smith",
+    "numberOfGuests": "Number of Guests",
+    "largerPartyNote": "Please call us directly for a larger party",
+    "date": "Date",
+    "time": "Time",
+    "specialRequests": "Special Requests (Optional)",
+    "specialRequestsPlaceholder": "Dietary restrictions, seating preferences, etc.",
+    "confirmReservation": "Confirm Reservation",
+    "confirmationNote": "We will call back to confirm your Reservation"
+  },
+  "testimonial": {
+    "sharedMomentsAndReviews": "Shared Moments and Reviews",
+    "testimonialDescription": "Share your own Review or moment to our Social page or google!"
+  },
+  "footer": {
+    "copyright": "© 2025 X Resturant. All rights reserved.",
+    "developer": "Shadman Sakib"
+  },
+  "metadata": {
+    "title": "Restaurant Name",
+    "description": "Restaurant Description"
+  },
+  "language": {
+    "english": "English",
+    "japanese": "Japanese"
+  }
+}

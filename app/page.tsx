@@ -1,11 +1,15 @@
-import Contact from "@/components/contact";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+
 import HeroSection from "@/components/hero-section";
 import Menu from "@/components/menu";
 import MasonryGridDemo from "@/components/testimonial";
+import Contact from "@/components/contact";
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <Navbar />
       <main>
         {/*Hero Section */}
         <HeroSection />
@@ -13,6 +17,7 @@ export default function Home() {
       </main>
       <MasonryGridDemo />
       <Contact />
-    </div>
+      <Footer />
+    </>
   );
 }

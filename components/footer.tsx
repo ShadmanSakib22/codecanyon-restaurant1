@@ -5,7 +5,7 @@ import { useTranslation } from "@/lib/i18n/translation-context";
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <footer className="bg-gradient-to-t from-foreground to-foreground/95 text-background backdrop-blur-sm py-3 text-center text-sm">
+    <footer className="bg-gradient-to-t from-foreground to-foreground/95 text-background backdrop-blur-sm py-3 px-4 text-center text-sm">
       {t("footer.copyright")}{" "}
       <a
         href="https://shadman-portfolio-2024.vercel.app/"

@@ -54,14 +54,18 @@ export default function HeroSection() {
                 <Link href="#menu">
                   <Button
                     variant="outline"
-                    className="bg-transparent! text-white hover:text-secondary/80"
+                    className="bg-transparent! text-secondary! hover:text-secondary/80 w-full sm:w-[200px]"
                     size={"lg"}
                   >
                     {t("common.viewMenu")}
                   </Button>
                 </Link>
                 <Link href="#reserve">
-                  <Button variant="secondary" size={"lg"}>
+                  <Button
+                    variant="secondary"
+                    size={"lg"}
+                    className="w-full sm:w-[200px]!"
+                  >
                     <CalendarCheck2 className="size-5" />{" "}
                     {t("common.reserveNow")}
                   </Button>

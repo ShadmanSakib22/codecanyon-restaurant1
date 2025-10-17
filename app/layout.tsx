@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Open_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+
 import { TranslationProvider } from "@/lib/i18n/translation-context";
 
 const playfair = Playfair_Display({
@@ -30,13 +29,9 @@ export default function RootLayout({
     <html lang="en">
       <body
         suppressHydrationWarning
-        className={`${playfair.variable} ${sans.variable} antialiased`}
+        className={`${playfair.variable} ${sans.variable} antialiased overflow-x-hidden`}
       >
-        <TranslationProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </TranslationProvider>
+        <TranslationProvider>{children}</TranslationProvider>
       </body>
     </html>
   );

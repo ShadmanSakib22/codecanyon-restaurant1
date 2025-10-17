@@ -11,7 +11,7 @@ const testimonials = [
     name: "Anaam Farooq",
     feedback: "Kashmir's Hidden Winter Wonderland",
     mainImage:
-      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&h=1200&q=80",
+      "https://images.unsplash.com/photo-1611518040286-9af8ba97ab46?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const testimonials = [
     name: "neophyte_clicker",
     feedback: "Celebrating Diwali Through The Lens",
     mainImage:
-      "https://images.unsplash.com/photo-1605292356183-a77d0a9c9d1d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8RGl3YWxpfGVufDB8fDB8fHww",
+      "https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1025",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const testimonials = [
     name: "Badshah1341",
     feedback: "A Sunset Symphony in Gold",
     mainImage:
-      "https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?auto=format&fit=crop&w=800&h=1000&q=80",
+      "https://images.unsplash.com/photo-1602273660127-a0000560a4c1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=736",
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ const testimonials = [
     name: "Naaz khan",
     feedback: "Illuminate the Night with the P3 Pro",
     mainImage:
-      "https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1614563637806-1d0e645e0940?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1073",
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const testimonials = [
     name: "Venky_smile",
     feedback: "Highlights from realme",
     mainImage:
-      "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1629684782790-385ed5adb497?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
   },
   {
     id: 7,
@@ -59,7 +59,7 @@ const testimonials = [
     name: "LoserAnant",
     feedback: "14 Pro Series Launch Event Recap",
     mainImage:
-      "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njh8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1625980319455-985e5442c5ae?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1175",
   },
 ];
 

@@ -24,8 +24,8 @@ export const ItemCard = ({ item }: { item: CardItemProps }) => (
           className="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
         {item.rating && (
-          <div className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-foreground/60 px-2 py-0.5 text-xs font-bold text-white shadow-md">
-            <Star className="h-3 w-3 fill-white" />
+          <div className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-foreground/60 px-2 py-0.5 text-xs font-bold text-background shadow-md">
+            <Star className="h-3 w-3 fill-background" />
             <span>{item.rating.toFixed(1)}</span>
           </div>
         )}

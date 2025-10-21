@@ -2,7 +2,7 @@
 import React from "react";
 import { Clock, Phone, Mail, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import ReservationForm from "@/components/ui/reservation-form";
+import ReservationForm from "@/components/function/reservation-form";
 import MotionReveal from "@/components/ui/motion-reveal";
 import { useTranslation } from "@/lib/i18n/translation-context";
 

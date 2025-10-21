@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { PhoneCall, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import LanguageDropdown from "@/components/ui/lang-dropdown";
+import LanguageDropdown from "@/components/function/lang-dropdown";
 import { useTranslation } from "@/lib/i18n/translation-context";
 
 const Navbar = () => {

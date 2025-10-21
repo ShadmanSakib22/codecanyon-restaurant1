@@ -57,9 +57,7 @@ export const MenuList = ({ category }: { category?: MenuCategory }) => {
                     </div>
                   ))
                 ) : (
-                  <p className="text-sm text-foreground/60 italic">
-                    No items available.
-                  </p>
+                  <p className="text-sm text-foreground/60">...</p>
                 )}
               </div>
             ))}

@@ -12,25 +12,20 @@
     "specials": "Specials",
     "openOn": "Open On",
     "person": "Person",
-    "people": "People",
-    "lunch": "Lunch",
-    "dinner": "Dinner",
-    "weekday": "(Mon - Fri)",
-    "weekend": "(Sat - Sun)",
-    "lastSeating": "Last seating is 30 minutes before closing."
+    "people": "People"
   },
   "navbar": {
     "ariaToggleMenu": "Toggle mobile menu"
   },
   "hero": {
-    "peakHour": "Peak Hour | 12:00 - 14:00",
+    "badge": "Peak Hour | 12:00 - 14:00",
     "title": "Experience Authentic Japanese Flavors",
     "subtitle": "Delight in every bite, handcrafted with tradition."
   },
   "menu": {
-    "limitedTimeOffer": "Limited Time Offer",
-    "todaysSpecials": "Today's Specials",
-    "specialsDescription": "Our master sushi chefs have prepared a selection of rare and seasonal dishes. Experience the freshest cuts, signature rolls, and savory ramen, available only for a limited time.",
+    "badge": "Limited Time Offer",
+    "title": "Today's Specials",
+    "subtitle": "Our master sushi chefs have prepared a selection of rare and seasonal dishes. Experience the freshest cuts, signature rolls, and savory ramen, available only for a limited time.",
     "menuCard": "Menu Card"
   },
   "contact": {
@@ -38,10 +33,14 @@
     "phone": "(123) 456-7890",
     "email": "reserve@sushibar.com",
     "address": "101 Cherry Blossom St, Tokyo, Japan",
-    "openingHours": "Opening Hours",
-    "lunchHours": "11:30 AM – 2:30 PM",
-    "dinnerWeekday": "5:30 PM – 10:00 PM",
-    "dinnerWeekend": "5:00 PM – 11:00 PM"
+    "operatingHours": "Operating Hours",
+    "slot1": "Sunday",
+    "slot2": "Saturday",
+    "slot3": "Mon-Fri",
+    "slot1time": "11:30 AM – 2:30 PM",
+    "slot2time": "5:30 PM – 10:00 PM",
+    "slot3time": "5:00 PM – 11:00 PM",
+    "lastSeating": "Last seating is 30 minutes before closing."
   },
   "reservation": {
     "bookTable": "Book a Table",
@@ -62,15 +61,10 @@
     "testimonialDescription": "Share your own Review or moment to our Social page or google!"
   },
   "footer": {
-    "copyright": "© 2025 X Resturant. All rights reserved.",
-    "developer": "Shadman Sakib"
+    "copyright": "© 2025 X Resturant. All rights reserved."
   },
   "metadata": {
-    "title": "Restaurant Name",
-    "description": "Restaurant Description"
-  },
-  "language": {
-    "english": "English",
-    "japanese": "Japanese"
+    "title": "title",
+    "description": "description"
   }
 }

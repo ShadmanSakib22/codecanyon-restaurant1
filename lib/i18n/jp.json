@@ -5,43 +5,42 @@
     "viewMenu": "メニューを見る",
     "reserveNow": "今すぐ予約",
     "social": "ソーシャル",
-    "location": "店舗情報",
+    "location": "所在地",
     "review": "レビュー",
     "reviews": "レビュー",
     "menu": "メニュー",
     "specials": "おすすめ",
-    "openOn": "営業日",
-    "person": "名様",
-    "people": "名様",
-    "lunch": "ランチ",
-    "dinner": "ディナー",
-    "weekday": "(月 - 金)",
-    "weekend": "(土 - 日)",
-    "lastSeating": "ラストオーダーは閉店の30分前です。"
+    "openOn": "営業中",
+    "person": "名",
+    "people": "名"
   },
   "navbar": {
     "ariaToggleMenu": "モバイルメニューを切り替える"
   },
   "hero": {
-    "peakHour": "ピークアワー | 12:00 - 14:00",
-    "title": "本物の日本の味を体験してください",
-    "subtitle": "伝統の技が光る、一口ごとの喜びを。"
+    "badge": "ピークアワー | 12:00 - 14:00",
+    "title": "本格的な日本の味を体験",
+    "subtitle": "伝統の技で丁寧に作られた、一口ごとの喜びを。"
   },
   "menu": {
-    "limitedTimeOffer": "期間限定メニュー",
-    "todaysSpecials": "本日のおすすめ",
-    "specialsDescription": "熟練の寿司職人が、希少な旬の食材を使用した厳選メニューをご用意しました。新鮮なネタ、特製ロール、そして風味豊かなラーメンを期間限定でお楽しみください。",
+    "badge": "期間限定オファー",
+    "title": "本日のスペシャル",
+    "subtitle": "当店の熟練寿司職人が、希少な旬の料理をご用意しました。新鮮なネタ、シグネチャーロール、そして風味豊かなラーメンを期間限定でお楽しみください。",
     "menuCard": "メニューカード"
   },
   "contact": {
-    "getInTouch": "お問い合わせ",
+    "getInTouch": "ご連絡ください",
     "phone": "(123) 456-7890",
     "email": "reserve@sushibar.com",
-    "address": "日本、東京、桜通り101番地",
-    "openingHours": "営業時間",
-    "lunchHours": "11:30 AM – 2:30 PM",
-    "dinnerWeekday": "5:30 PM – 10:00 PM",
-    "dinnerWeekend": "5:00 PM – 11:00 PM"
+    "address": "日本、東京、桜ストリート101",
+    "operatingHours": "営業時間",
+    "slot1": "日曜日",
+    "slot2": "土曜日",
+    "slot3": "月〜金",
+    "slot1time": "午前11:30 – 午後2:30",
+    "slot2time": "午後5:30 – 午後10:00",
+    "slot3time": "午後5:00 – 午後11:00",
+    "lastSeating": "ラストオーダーは閉店の30分前です。"
   },
   "reservation": {
     "bookTable": "テーブルを予約する",
@@ -49,28 +48,23 @@
     "fullName": "氏名",
     "namePlaceholder": "山田 太郎",
     "numberOfGuests": "人数",
-    "largerPartyNote": "10名様以上の団体予約はお電話にて承ります。",
+    "largerPartyNote": "大人数の場合は、直接お電話ください",
     "date": "日付",
     "time": "時間",
-    "specialRequests": "特別なご要望 (任意)",
-    "specialRequestsPlaceholder": "食事制限、座席の希望など。",
+    "specialRequests": "特別なご要望（オプション）",
+    "specialRequestsPlaceholder": "食事制限、座席の希望など",
     "confirmReservation": "予約を確定する",
-    "confirmationNote": "ご予約内容の確認のため、後ほどお電話いたします。"
+    "confirmationNote": "ご予約確認のため、折り返しお電話いたします"
   },
   "testimonial": {
     "sharedMomentsAndReviews": "共有された瞬間とレビュー",
-    "testimonialDescription": "お客様のレビューや瞬間をソーシャルページまたはGoogleで共有してください！"
+    "testimonialDescription": "お客様のレビューや思い出をソーシャルページやGoogleでシェアしてください！"
   },
   "footer": {
-    "copyright": "© 2025 Xレストラン. 無断複写・転載を禁じます。",
-    "developer": "シャドマン・サキブ"
+    "copyright": "© 2025 X レストラン. 無断複写・転載を禁じます。"
   },
   "metadata": {
-    "title": "レストラン名",
-    "description": "レストランの説明"
-  },
-  "language": {
-    "english": "英語",
-    "japanese": "日本語"
+    "title": "タイトル",
+    "description": "説明"
   }
 }

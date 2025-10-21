@@ -1,3 +1,4 @@
+// components/navbar
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
@@ -62,7 +63,7 @@ const Navbar = () => {
     <>
       <nav
         className={
-          "fixed top-0 z-10 w-full py-4 transition-colors duration-300 ease-in-out " +
+          "fixed top-0 z-[90] w-full py-4 transition-colors duration-300 ease-in-out " +
           (isTop
             ? "bg-transparent text-secondary"
             : "bg-secondary/95 backdrop-blur-sm text-primary shadow-md")
@@ -137,7 +138,7 @@ const Navbar = () => {
       {/* Mobile Sidebar Menu */}
       <div
         ref={mobileMenuRef}
-        className={`fixed inset-y-0 left-0 w-80 bg-secondary/95 backdrop-blur-sm z-40 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed inset-y-0 left-0 w-80 bg-secondary/95 backdrop-blur-sm z-[100] transform transition-transform duration-300 ease-in-out md:hidden ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

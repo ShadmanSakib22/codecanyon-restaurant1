@@ -1,3 +1,4 @@
+// components/hero-section
 "use client";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,15 +32,15 @@ export default function HeroSection() {
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80 z-[-1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-foreground/20 via-foreground/50 to-foreground/80 z-[-1]" />
 
       {/* Glass Panel */}
       <MotionReveal>
-        <div className="bg-black/70 shadow-xl w-full">
+        <div className="bg-foreground/70 shadow-xl w-full">
           <div className="container py-8 flex flex-col sm:flex-row gap-5">
             <div className="max-w-3xl ">
               <div className="px-4 py-1.5 rounded-full min-w-[160px] border inline-flex text-secondary text-sm backdrop-blur-md">
-                {t("hero.peakHour")}
+                {t("hero.badge")}
               </div>
 
               <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-medium text-secondary leading-tight drop-shadow-lg">

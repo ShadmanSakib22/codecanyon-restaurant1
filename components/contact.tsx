@@ -1,3 +1,4 @@
+// components/contact
 "use client";
 import React from "react";
 import { Clock, Phone, Mail, MapPin } from "lucide-react";
@@ -31,36 +32,30 @@ const ContactDetails = () => {
         </div>
       </div>
 
-      {/* Openning hrs */}
+      {/* Operating hrs */}
       <div id="op-hrs">
         <h2 className="text-3xl font-bold text-foreground mb-6">
-          {t("contact.openingHours")}
+          {t("contact.operatingHours")}
         </h2>
         <Card className="shadow-lg border-foreground/10">
           <CardContent className="p-6 space-y-3 text-foreground/90">
             <p className="flex justify-between border-b border-foreground/10 pb-2">
-              {/* Lunch Label and Hours */}
-              <span className="font-semibold">{t("common.lunch")}:</span>{" "}
-              <span>{t("contact.lunchHours")}</span>
+              <span className="font-semibold">{t("contact.slot1")}:</span>{" "}
+              <span>{t("contact.slot1time")}</span>
             </p>
             <p className="flex justify-between border-b border-foreground/10 pb-2">
-              {/* Dinner Weekday Label and Hours */}
-              <span className="font-semibold">
-                {t("common.dinner")} {t("common.weekday")}:
-              </span>{" "}
-              <span>{t("contact.dinnerWeekday")}</span>
+              <span className="font-semibold">{t("contact.slot2")}:</span>{" "}
+              <span>{t("contact.slot2time")}</span>
             </p>
             <p className="flex justify-between border-b border-foreground/10 pb-2">
-              {/* Dinner Weekend Label and Hours */}
-              <span className="font-semibold">
-                {t("common.dinner")} {t("common.weekend")}:
-              </span>{" "}
-              <span>{t("contact.dinnerWeekend")}</span>
+              <span className="font-semibold">{t("contact.slot3")}:</span>{" "}
+              <span>{t("contact.slot3time")}</span>
             </p>
+
             <p className="flex justify-center pt-2 text-sm text-foreground/50">
               <Clock className="w-4 h-4 mr-2" />
               {/* Last Seating Note */}
-              {t("common.lastSeating")}
+              {t("contact.lastSeating")}
             </p>
           </CardContent>
         </Card>
@@ -72,9 +67,9 @@ const ContactDetails = () => {
 // --- Main Contact Page ---
 const Contact = () => {
   return (
-    <section className="mt-10 md:mt-24 lg:mt-28 bg-secondary/95 backdrop-blur-sm">
+    <section className="mt-10 md:mt-24 lg:mt-28 bg-secondary/95 backdrop-blur-sm overflow-x-hidden">
       {/* Contact & Form Section */}
-      <div className="container max-w-7xl mx-auto">
+      <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 py-12 md:py-16">
           {/* Left: Contact Details & Hours */}
           <MotionReveal direction="left">

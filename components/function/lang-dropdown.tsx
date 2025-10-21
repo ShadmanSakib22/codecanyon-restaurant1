@@ -1,3 +1,4 @@
+// components/function/lang-dropdown.tsx
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronDown, Globe } from "lucide-react";
@@ -9,8 +10,8 @@ interface LanguageDropdownProps {
 }
 
 const defaultLanguages = [
-  { code: "en", nameKey: "language.english" },
-  { code: "jp", nameKey: "language.japanese" },
+  { code: "en", nameKey: "English" },
+  { code: "jp", nameKey: "日本 語" },
 ];
 
 const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
@@ -65,19 +66,18 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
   };
 
   const currentLanguageName = t(
-    languages.find((lang) => lang.code === language)?.nameKey ||
-      "language.english"
+    languages.find((lang) => lang.code === language)?.nameKey || "English"
   );
 
   return (
-    <div className="relative inline-block text-left" ref={dropdownRef}>
+    <div className="relative inline-block text-left w-full" ref={dropdownRef}>
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         aria-expanded={isOpen}
         aria-controls="language-menu"
         className={`flex items-center justify-between gap-1 md:w-28 px-3 py-2 rounded-md font-medium
-          transition-all duration-200 focus:outline-none focus:ring-1 
+          transition-all duration-200 focus:outline-none focus:ring-1 w-full
           ${baseClasses.trigger}
         `}
       >

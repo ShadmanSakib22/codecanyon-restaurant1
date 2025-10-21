@@ -1,3 +1,4 @@
+// components/menu
 "use client";
 import { MenuList, MenuCategory } from "@/components/ui/menu-list";
 import { OffersCarousel } from "@/components/ui/offers-carousel";
@@ -134,17 +135,17 @@ const Menu = () => {
           <div className="flex items-center gap-2 mb-2 rounded-2xl py-1 px-2.5 border bg-foreground/5 backdrop-blur-xs">
             <UtensilsCrossed className="h-5 w-5" />
             <p className="text-xs font-medium uppercase tracking-wider">
-              {t("menu.limitedTimeOffer")}
+              {t("menu.badge")}
             </p>
           </div>
           <h2
             id="specials"
             className="text-3xl font-extrabold tracking-tight text-foreground"
           >
-            {t("menu.todaysSpecials")}
+            {t("menu.title")}
           </h2>
           <p className="mt-3 mb-6 text-base text-muted-foreground max-w-sm lg:max-w-none">
-            {t("menu.specialsDescription")}
+            {t("menu.subtitle")}
           </p>
           <Link href="#reserve">
             <Button variant="secondary" className="border">

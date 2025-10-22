@@ -1,5 +1,4 @@
 // components/menu
-"use client";
 import { MenuList, MenuCategory } from "@/components/ui/menu-list";
 import { OffersCarousel } from "@/components/ui/offers-carousel";
 import { CardItemProps } from "@/components/ui/item-card";
@@ -7,7 +6,7 @@ import { HandCoins, UtensilsCrossed } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import MotionReveal from "@/components/ui/motion-reveal";
 import Link from "next/link";
-import { useTranslation } from "@/lib/i18n/translation-context";
+import { useTranslations } from "next-intl";
 
 // mock data - featured/specials
 const specialDishes: CardItemProps[] = [
@@ -125,7 +124,7 @@ const menuCategories: MenuCategory[] = [
 ];
 
 const Menu = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
   return (
     <section className="mt-10 md:mt-24 lg:mt-32 container">
       {/* Specials */}

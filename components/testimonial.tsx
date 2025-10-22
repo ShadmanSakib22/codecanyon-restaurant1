@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import { MasonryGrid } from "@/components/ui/image-testimonial-grid";
-import { useTranslation } from "@/lib/i18n/translation-context";
+import { useTranslations } from "next-intl";
 
 const testimonials = [
   {
@@ -110,7 +110,7 @@ const TestimonialCard = ({
 );
 
 const MasonryGridDemo = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
   const [columns, setColumns] = React.useState(4);
 
   const getColumns = (width: number) => {

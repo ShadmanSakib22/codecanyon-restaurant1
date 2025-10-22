@@ -1,10 +1,9 @@
 // components/footer
-"use client";
 import React from "react";
-import { useTranslation } from "@/lib/i18n/translation-context";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
   return (
     <footer className="bg-gradient-to-t from-foreground to-foreground/95 text-background backdrop-blur-sm py-3 px-4 text-center text-sm">
       {t("footer.copyright")}

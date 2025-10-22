@@ -1,38 +1,31 @@
-// components/function/lang-dropdown.tsx
 "use client";
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, Globe } from "lucide-react";
-import { useTranslation } from "@/lib/i18n/translation-context";
+import { useLocale } from "next-intl";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 interface LanguageDropdownProps {
   isTop: boolean;
-  languages?: { code: string; nameKey: string }[];
+  languages?: { code: string; name: string }[];
 }
 
 const defaultLanguages = [
-  { code: "en", nameKey: "English" },
-  { code: "jp", nameKey: "日本 語" },
+  { code: "en", name: "English" },
+  { code: "jp", name: "日本語" },
 ];
 
 const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
   isTop,
   languages = defaultLanguages,
 }) => {
-  // Use the translation hook to access context values
-  const { language, setLanguage, t } = useTranslation();
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleSelectLanguage = useCallback(
-    (code: string) => {
-      setLanguage(code as "en" | "jp");
-      setIsOpen(false);
-    },
-    [setLanguage]
-  );
-
-  // --- Handlers for Closing Dropdown ---
-  // Handle closing on outside click
+  // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -45,18 +38,16 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-  // Handle closing on Escape key press (Accessibility improvement)
+
+  // Close on Escape key
   useEffect(() => {
     const handleKeydown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-      }
+      if (event.key === "Escape") setIsOpen(false);
     };
     document.addEventListener("keydown", handleKeydown);
     return () => document.removeEventListener("keydown", handleKeydown);
   }, []);
 
-  // --- Dynamic Classes for Styling ---
   const baseClasses = {
     trigger: isTop
       ? "text-secondary hover:bg-secondary/10 focus:ring-secondary/50"
@@ -65,9 +56,21 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
     inactiveItem: "text-foreground hover:bg-muted/50",
   };
 
-  const currentLanguageName = t(
-    languages.find((lang) => lang.code === language)?.nameKey || "English"
-  );
+  const currentLanguageName =
+    languages.find((lang) => lang.code === locale)?.name || "English";
+
+  const handleLanguageChange = (langCode: string) => {
+    setIsOpen(false);
+    if (langCode !== locale) {
+      // Split pathname: first segment is current locale
+      const segments = pathname.split("/").slice(2);
+      const newPath = `/${langCode}/${segments.join("/")}`;
+
+      // Preserve query params
+      const query = searchParams.toString();
+      router.push(query ? `${newPath}?${query}` : newPath);
+    }
+  };
 
   return (
     <div className="relative inline-block text-left w-full" ref={dropdownRef}>
@@ -78,8 +81,7 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
         aria-controls="language-menu"
         className={`flex items-center justify-between gap-1 md:w-28 px-3 py-2 rounded-md font-medium
           transition-all duration-200 focus:outline-none focus:ring-1 w-full
-          ${baseClasses.trigger}
-        `}
+          ${baseClasses.trigger}`}
       >
         <Globe className="w-4 h-4" />
         <span className="text-nowrap">{currentLanguageName}</span>
@@ -100,26 +102,22 @@ const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
             isOpen
               ? "opacity-100 scale-100"
               : "opacity-0 scale-95 pointer-events-none"
-          }
-        `}
+          }`}
       >
         {languages.map((lang) => (
           <button
             key={lang.code}
-            onClick={() => handleSelectLanguage(lang.code)}
-            aria-checked={language === lang.code}
-            role="menuitemradio"
+            onClick={() => handleLanguageChange(lang.code)}
             className={`flex w-full items-center justify-between px-4 py-2 text-sm rounded-md
               transition-colors duration-150
               ${
-                language === lang.code
+                locale === lang.code
                   ? baseClasses.activeItem
                   : baseClasses.inactiveItem
-              }
-            `}
+              }`}
           >
-            {t(lang.nameKey)}
-            {language === lang.code && (
+            {lang.name}
+            {locale === lang.code && (
               <span className="text-xs opacity-70">✓</span>
             )}
           </button>

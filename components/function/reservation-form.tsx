@@ -13,10 +13,10 @@ import {
   CardDescription,
 } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { useTranslation } from "@/lib/i18n/translation-context";
+import { useTranslations } from "next-intl";
 
 const ReservationForm = () => {
-  const { t } = useTranslation();
+  const t = useTranslations();
   return (
     <Card className="shadow-2xl border-foreground/10">
       <CardHeader>

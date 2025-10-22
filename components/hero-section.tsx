@@ -1,5 +1,4 @@
 // components/hero-section
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -11,10 +10,10 @@ import {
   ThumbsUp,
 } from "lucide-react";
 import MotionReveal from "@/components/ui/motion-reveal";
-import { useTranslation } from "@/lib/i18n/translation-context";
+import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
-  const { t } = useTranslation();
+  const t = useTranslations();
   //Todo: fetch from sanity
   const map_url =
     "https://www.google.com/maps/place/North+South+University/@23.8151107,90.4229817,17z/data=!3m1!4b1!4m6!3m5!1s0x3755c64c103a8093:0xd660a4f50365294a!8m2!3d23.8151107!4d90.4255566!16zL20vMDVqbXI1?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D";

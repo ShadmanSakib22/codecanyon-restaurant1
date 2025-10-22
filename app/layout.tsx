@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+// app/layout.tsx
+
 import { Playfair_Display, Open_Sans } from "next/font/google";
 import "./globals.css";
-
-import { TranslationProvider } from "@/lib/i18n/translation-context";
+import React from "react";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -15,24 +15,17 @@ const sans = Open_Sans({
   weight: ["400", "500", "600", "700"],
 });
 
-export const metadata: Metadata = {
-  title: "Restaurant Name",
-  description: "Restaurant Description",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        suppressHydrationWarning
-        className={`${playfair.variable} ${sans.variable} antialiased overflow-x-hidden`}
-      >
-        <TranslationProvider>{children}</TranslationProvider>
-      </body>
+    <html
+      suppressHydrationWarning
+      className={`${playfair.variable} ${sans.variable} antialiased overflow-x-hidden`}
+    >
+      <body>{children}</body>
     </html>
   );
 }

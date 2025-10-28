@@ -1,8 +1,8 @@
-// app/[locale]/layout.tsx
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { notFound } from "next/navigation";
+export const revalidate = 3600;
 import React from "react";
+import { NextIntlClientProvider } from "next-intl";
+import { notFound } from "next/navigation";
+import { getPayloadClient } from "@/lib/payloadClient";
 
 export async function generateMetadata({
   params,
@@ -19,6 +19,77 @@ export async function generateMetadata({
   };
 }
 
+async function getMessagesFromPayload(locale: string) {
+  try {
+    const payload = await getPayloadClient();
+
+    // Fetch all globals (localized)
+    const [siteSettings, hero, contact, operatingHours, commonUI] =
+      await Promise.all([
+        payload.findGlobal({
+          slug: "site-settings",
+          locale,
+        }),
+        payload.findGlobal({
+          slug: "hero",
+          locale,
+        }),
+        payload.findGlobal({
+          slug: "contact",
+          locale,
+        }),
+        payload.findGlobal({
+          slug: "operating-hours",
+          locale,
+        }),
+        payload.findGlobal({
+          slug: "common-ui",
+          locale,
+        }),
+      ]);
+
+    // Fetch localized collections
+    const [menuItems, specials, testimonials] = await Promise.all([
+      payload.find({
+        collection: "menu-items",
+        locale,
+        depth: 1,
+      }),
+      payload.find({
+        collection: "specials",
+        locale,
+        depth: 1,
+      }),
+      payload.find({
+        collection: "testimonials",
+        locale,
+        depth: 1,
+      }),
+    ]);
+
+    // Construct your translation-like object for NextIntl
+    const messages = {
+      common: commonUI || {},
+      hero: hero || {},
+      menu: {
+        items: menuItems?.docs || [],
+        specials: specials?.docs || [],
+      },
+      contact: {
+        ...contact,
+        operatingHours: operatingHours,
+      },
+      testimonials: testimonials?.docs || [],
+      site: siteSettings || {},
+    };
+
+    return messages;
+  } catch (error) {
+    console.error("Error loading messages from Payload:", error);
+    return null;
+  }
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -26,18 +97,10 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const { locale } = await params; //await
+  const { locale } = await params;
 
-  let messages;
-  try {
-    messages = await getMessages();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  } catch (error) {
-    notFound();
-  }
-
-  // console.log(`layout log- ${locale}`);
-  // console.log(messages);
+  const messages = await getMessagesFromPayload(locale);
+  if (!messages) notFound();
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>

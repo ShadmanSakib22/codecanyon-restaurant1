@@ -14,12 +14,12 @@ export default getRequestConfig(async ({ requestLocale }) => {
     notFound();
   }
 
-  const messages = await import(`@/lib/messages/${safeLocale}.json`).then(
-    (mod) => mod.default
-  );
+  // const messages = await import(`@/lib/messages/${safeLocale}.json`).then(
+  //   (mod) => mod.default
+  // );
 
   return {
     locale: safeLocale,
-    messages,
+    // messages,
   };
 });

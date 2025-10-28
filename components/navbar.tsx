@@ -121,7 +121,6 @@ const Navbar = () => {
           <button
             onClick={toggleMobileMenu}
             className="md:hidden p-2 rounded-md transition-colors duration-200 hover:bg-secondary/10"
-            aria-label={t("navbar.ariaToggleMenu")}
             aria-expanded={isMobileMenuOpen}
           >
             {!isMobileMenuOpen && (
@@ -151,7 +150,6 @@ const Navbar = () => {
             <button
               onClick={toggleMobileMenu}
               className="ml-auto md:hidden p-2 rounded-md transition-colors duration-200 hover:bg-secondary/10"
-              aria-label={t("navbar.ariaToggleMenu")}
               aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen && <X className={`w-6 h-6 text-foreground`} />}

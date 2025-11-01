@@ -1,12 +1,16 @@
-import { GlobalConfig } from "payload";
+import type { GlobalConfig } from "payload";
 
 export const CommonUI: GlobalConfig = {
-  slug: "common-texts",
+  slug: "common-ui",
   label: "Common UI Texts",
   fields: [
     {
       name: "common",
       type: "group",
+      admin: {
+        description:
+          "⚠️ These texts are used throughout the website interface. Changing them may affect UI labels, buttons, and links. Proceed carefully!",
+      },
       fields: [
         { name: "contactUs", type: "text" },
         { name: "viewMenu", type: "text" },
@@ -18,8 +22,6 @@ export const CommonUI: GlobalConfig = {
         { name: "menu", type: "text" },
         { name: "specials", type: "text" },
         { name: "openOn", type: "text" },
-        { name: "person", type: "text" },
-        { name: "people", type: "text" },
       ],
     },
   ],

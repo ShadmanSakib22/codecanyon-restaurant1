@@ -3,10 +3,9 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 
 export interface CardItemProps {
-  id: number | string;
-  imageUrl: string;
-  title: string;
-  subtitle: string;
+  name: string;
+  desc: string;
+  image?: { url: string };
   rating?: number;
   price: string;
 }
@@ -17,8 +16,8 @@ export const ItemCard = ({ item }: { item: CardItemProps }) => (
       {/* Image Section */}
       <div className="relative flex-shrink-0">
         <Image
-          src={item.imageUrl}
-          alt={item.title}
+          src={item.image?.url || "https://placehold.co/800x600?text=Image"}
+          alt={item.name}
           width={256}
           height={144}
           className="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-105"
@@ -35,10 +34,10 @@ export const ItemCard = ({ item }: { item: CardItemProps }) => (
       <div className="flex flex-col justify-between p-4 flex-grow">
         <div className="space-y-1">
           <h3 className="text-base font-semibold leading-tight text-foreground line-clamp-1">
-            {item.title}
+            {item.name}
           </h3>
           <p className="text-sm text-muted-foreground line-clamp-2">
-            {item.subtitle}
+            {item.desc}
           </p>
         </div>
         <p className="mt-3 border-t pt-2 text-lg font-medium text-primary">

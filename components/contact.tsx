@@ -13,7 +13,7 @@ const ContactDetails = () => {
       {/* Contact Information */}
       <div>
         <h2 className="text-3xl font-bold text-foreground mb-6">
-          {t("contact.getInTouch")}
+          {t("contact.title")}
         </h2>
         <div className="space-y-4 text-lg text-foreground">
           <p className="flex items-center text-foreground/90">
@@ -34,27 +34,33 @@ const ContactDetails = () => {
       {/* Operating hrs */}
       <div id="op-hrs">
         <h2 className="text-3xl font-bold text-foreground mb-6">
-          {t("contact.operatingHours")}
+          {t("operatingHours.title")}
         </h2>
         <Card className="shadow-lg border-foreground/10">
           <CardContent className="p-6 space-y-3 text-foreground/90">
             <p className="flex justify-between border-b border-foreground/10 pb-2">
-              <span className="font-semibold">{t("contact.slot1")}:</span>{" "}
-              <span>{t("contact.slot1time")}</span>
+              <span className="font-semibold">
+                {t("operatingHours.slot1")}:
+              </span>{" "}
+              <span>{t("operatingHours.slot1time")}</span>
             </p>
             <p className="flex justify-between border-b border-foreground/10 pb-2">
-              <span className="font-semibold">{t("contact.slot2")}:</span>{" "}
-              <span>{t("contact.slot2time")}</span>
+              <span className="font-semibold">
+                {t("operatingHours.slot2")}:
+              </span>{" "}
+              <span>{t("operatingHours.slot2time")}</span>
             </p>
             <p className="flex justify-between border-b border-foreground/10 pb-2">
-              <span className="font-semibold">{t("contact.slot3")}:</span>{" "}
-              <span>{t("contact.slot3time")}</span>
+              <span className="font-semibold">
+                {t("operatingHours.slot3")}:
+              </span>{" "}
+              <span>{t("operatingHours.slot3time")}</span>
             </p>
 
             <p className="flex justify-center pt-2 text-sm text-foreground/50">
               <Clock className="w-4 h-4 mr-2" />
               {/* Last Seating Note */}
-              {t("contact.lastSeating")}
+              {t("operatingHours.disclaimer")}
             </p>
           </CardContent>
         </Card>

@@ -8,8 +8,8 @@ import {
 
 export interface MenuItem {
   name: string;
-  price: number;
-  desc: string;
+  price: string;
+  shortdesc: string;
 }
 
 export interface MenuCategory {
@@ -18,7 +18,6 @@ export interface MenuCategory {
 }
 
 export const MenuList = ({ category }: { category?: MenuCategory }) => {
-  const categoryName = category?.name || "Items";
   const items = category?.items || [];
 
   // Split items roughly in half for two columns on large screens
@@ -30,7 +29,7 @@ export const MenuList = ({ category }: { category?: MenuCategory }) => {
     <Accordion type="single" collapsible defaultValue="item-0">
       <AccordionItem value="item-0" className="border-none">
         <AccordionTrigger className="p-2 bg-foreground/10 backdrop-blur-md mb-4 rounded-md text-lg md:text-xl text-center font-medium text-foreground hover:no-underline">
-          {categoryName}
+          {category?.name}
         </AccordionTrigger>
         <AccordionContent>
           {/* Responsive grid for menu items */}
@@ -48,11 +47,11 @@ export const MenuList = ({ category }: { category?: MenuCategory }) => {
                           {item.name}
                         </p>
                         <p className="text-sm text-foreground/70 max-w-lg line-clamp-2">
-                          {item.desc}
+                          {item.shortdesc}
                         </p>
                       </div>
                       <span className="text-base md:text-lg font-medium flex-shrink-0 text-foreground/70 group-hover:text-foreground">
-                        ${item.price.toFixed(2)}
+                        {item.price}
                       </span>
                     </div>
                   ))

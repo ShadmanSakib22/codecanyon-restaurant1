@@ -1,7 +1,6 @@
 export const revalidate = 3600;
 import React from "react";
 import { NextIntlClientProvider } from "next-intl";
-import { notFound } from "next/navigation";
 import { getPayloadClient } from "@/lib/payloadClient";
 
 export async function generateMetadata({
@@ -49,23 +48,29 @@ async function getMessagesFromPayload(locale: string) {
       ]);
 
     // Fetch localized collections
-    const [menuItems, specials, testimonials] = await Promise.all([
-      payload.find({
-        collection: "menu-items",
-        locale,
-        depth: 1,
-      }),
-      payload.find({
-        collection: "specials",
-        locale,
-        depth: 1,
-      }),
-      payload.find({
-        collection: "testimonials",
-        locale,
-        depth: 1,
-      }),
-    ]);
+    const [menuItems, specials, testimonials, reservationUI] =
+      await Promise.all([
+        payload.find({
+          collection: "menu-items",
+          locale,
+          depth: 1,
+        }),
+        payload.find({
+          collection: "specials",
+          locale,
+          depth: 1,
+        }),
+        payload.find({
+          collection: "testimonials",
+          locale,
+          depth: 1,
+        }),
+        payload.find({
+          collection: "reservation-ui",
+          locale,
+          depth: 1,
+        }),
+      ]);
 
     // Construct your translation-like object for NextIntl
     const messages = {
@@ -80,13 +85,14 @@ async function getMessagesFromPayload(locale: string) {
         operatingHours: operatingHours,
       },
       testimonials: testimonials?.docs || [],
+      reservation: reservationUI?.docs || [],
       site: siteSettings || {},
     };
 
     return messages;
   } catch (error) {
     console.error("Error loading messages from Payload:", error);
-    return null;
+    return {};
   }
 }
 
@@ -100,7 +106,6 @@ export default async function LocaleLayout({
   const { locale } = await params;
 
   const messages = await getMessagesFromPayload(locale);
-  if (!messages) notFound();
 
   return (
     <NextIntlClientProvider messages={messages} locale={locale}>

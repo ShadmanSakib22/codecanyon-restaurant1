@@ -1,25 +1,40 @@
+// payload/payload.config.ts
 import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 import { buildConfig } from "payload";
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
 import { uploadthingStorage } from "@payloadcms/storage-uploadthing";
+import sharp from "sharp";
+import { lexicalEditor } from "@payloadcms/richtext-lexical";
 // collections
-import { Users } from "@/payload/collections/Users";
-import { Reservations } from "@/payload/collections/Reservations";
-import { MenuItems } from "@/payload/collections/MenuItems";
-import { Specials } from "@/payload/collections/Specials";
-import { Testimonials } from "@/payload/collections/Testimonials";
-import { Media } from "@/payload/collections/Media";
+import { Users } from "./collections/Users.ts";
+import { Reservations } from "./collections/Reservations.ts";
+import { ReservationUI } from "./collections/ReservationUI.ts";
+import { MenuItems } from "./collections/MenuItems.ts";
+import { Specials } from "./collections/Specials.ts";
+import { Testimonials } from "./collections/Testimonials.ts";
+import { Media } from "./collections/Media.ts";
 // globals
-import { SiteSettings } from "@/payload/globals/SiteSettings";
-import { Hero } from "@/payload/globals/Hero";
-import { Contact } from "@/payload/globals/Contact";
-import { OperatingHours } from "@/payload/globals/OperatingHours";
-import { CommonUI } from "@/payload/globals/CommonUI";
+import { SiteSettings } from "./globals/SiteSettings.ts";
+import { Hero } from "./globals/Hero.ts";
+import { Contact } from "./globals/Contact.ts";
+import { OperatingHours } from "./globals/OperatingHours.ts";
+import { CommonUI } from "./globals/CommonUI.ts";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const dbFilename = process.env.DATABASE_FILENAME || "payload.sqlite";
+const absolutePath = path.join(process.cwd(), "payload", dbFilename);
+const posixPath = absolutePath.replace(/\\/g, "/");
 
 export default buildConfig({
+  editor: lexicalEditor(),
+
   db: sqliteAdapter({
     client: {
-      url: `./${process.env.DATABASE_FILENAME}`,
+      url: `file:${posixPath}`,
     },
   }),
   secret: process.env.PAYLOAD_SECRET || "dev-key",
@@ -32,17 +47,27 @@ export default buildConfig({
 
   plugins: [
     uploadthingStorage({
+      collections: {
+        media: true,
+      },
       options: {
         token: process.env.UPLOADTHING_TOKEN || "",
         acl: "public-read",
       },
-      collections: {
-        media: true,
-      },
     }),
   ],
 
-  collections: [Users, Media, MenuItems, Specials, Testimonials, Reservations],
+  sharp,
+
+  collections: [
+    Users,
+    Media,
+    MenuItems,
+    Specials,
+    Testimonials,
+    Reservations,
+    ReservationUI,
+  ],
 
   globals: [SiteSettings, Hero, Contact, OperatingHours, CommonUI],
 

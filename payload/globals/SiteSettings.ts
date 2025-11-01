@@ -1,4 +1,4 @@
-import { GlobalConfig } from "payload";
+import type { GlobalConfig } from "payload";
 
 export const SiteSettings: GlobalConfig = {
   slug: "site-settings",
@@ -27,6 +27,7 @@ export const SiteSettings: GlobalConfig = {
       admin: { condition: (_, siblingData) => siblingData.logoType === "text" },
     },
     { name: "companyName", type: "text", localized: true },
+    { name: "copyright", type: "text", localized: true },
     {
       name: "metadata",
       type: "group",

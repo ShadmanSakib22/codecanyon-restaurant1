@@ -1,4 +1,3 @@
-// components/menu
 import { MenuList, MenuCategory } from "@/components/ui/menu-list";
 import { OffersCarousel } from "@/components/ui/offers-carousel";
 import { CardItemProps } from "@/components/ui/item-card";
@@ -8,143 +7,52 @@ import MotionReveal from "@/components/ui/motion-reveal";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-// mock data - featured/specials
-const specialDishes: CardItemProps[] = [
-  {
-    id: "1",
-    title: "The Dragon's Breath Roll",
-    subtitle: "Our premium special! Inside: spicy tuna and tempura flakes.",
-    price: "$18.50",
-    rating: 4,
-    imageUrl: "https://images.unsplash.com/photo-1563612116625-3012372fccce",
-  },
-  {
-    id: "2",
-    title: "Seasonal Sashimi Platter",
-    subtitle: "A hand-selected assortment of five different seasonal fish.",
-    price: "$24.00",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1553621042-f6e147245754",
-  },
-  {
-    id: "3",
-    title: "The Dragon's Breath Roll",
-    subtitle: "Our premium special! Inside: spicy tuna and tempura flakes.",
-    price: "$18.50",
-    rating: 4,
-    imageUrl: "https://images.unsplash.com/photo-1563612116625-3012372fccce",
-  },
-  {
-    id: "4",
-    title: "Seasonal Sashimi Platter",
-    subtitle: "A hand-selected assortment of five different seasonal fish.",
-    price: "$24.00",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1553621042-f6e147245754",
-  },
-  {
-    id: "5",
-    title: "Seasonal Sashimi Platter",
-    subtitle: "A hand-selected assortment of five different seasonal fish.",
-    price: "$24.00",
-    rating: 5,
-    imageUrl: "https://images.unsplash.com/photo-1553621042-f6e147245754",
-  },
-];
-
-// mock data - menu list
-const menuCategories: MenuCategory[] = [
-  {
-    name: "Classic Nigiri & Sashimi",
-    items: [
-      { name: "Maguro (Tuna)", price: 6.0, desc: "Finest quality red tuna." },
-      {
-        name: "Sake (Salmon)",
-        price: 5.5,
-        desc: "Fresh Atlantic salmon slice.",
-      },
-      {
-        name: "Unagi (Eel)",
-        price: 7.5,
-        desc: "Grilled eel with house-made sweet sauce.",
-      },
-      {
-        name: "Hamachi (Yellowtail)",
-        price: 6.5,
-        desc: "Light, buttery yellowtail, a house favorite.",
-      },
-      { name: "Ebi (Shrimp)", price: 4.5, desc: "Cooked shrimp." },
-    ],
-  },
-  {
-    name: "Specialty Rolls",
-    items: [
-      {
-        name: "Crispy Crunch Roll",
-        price: 15.0,
-        desc: "Shrimp tempura, avocado, topped with spicy mayo and flakes.",
-      },
-      {
-        name: "Kyoto Dragon Roll",
-        price: 17.5,
-        desc: "Eel and cucumber inside, avocado and eel sauce on top.",
-      },
-      {
-        name: "Spicy Tuna Volcano",
-        price: 14.5,
-        desc: "Spicy tuna, cucumber, topped with wasabi tobiko.",
-      },
-    ],
-  },
-  {
-    name: "Hot Kitchen & Soups",
-    items: [
-      {
-        name: "Tonkotsu Ramen",
-        price: 16.0,
-        desc: "Rich 18hr pork broth, chashu pork, egg, and nori.",
-      },
-      {
-        name: "Assorted Tempura",
-        price: 12.0,
-        desc: "Shrimp and seasonal vegetables, light batter.",
-      },
-      {
-        name: "Gyoza (Pork/Veg)",
-        price: 8.0,
-        desc: "Six pan-fried dumplings with ponzu dipping sauce.",
-      },
-      {
-        name: "Miso Soup",
-        price: 3.5,
-        desc: "Traditional soybean paste broth.",
-      },
-    ],
-  },
-];
-
 const Menu = () => {
-  const t = useTranslations();
+  const t = useTranslations("menu");
+
+  // Specials
+  const rawSpecials = t.raw("specials");
+  const specials: CardItemProps[] = Array.isArray(rawSpecials)
+    ? rawSpecials
+    : [];
+
+  // Menu items (group by category)
+  const rawItems = t.raw("items");
+  const allItems: unknown[] = Array.isArray(rawItems) ? rawItems : [];
+  const menuCategories: MenuCategory[] = Object.values(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    allItems.reduce((acc: Record<string, MenuCategory>, item: any) => {
+      const category = item.category || "Items";
+      if (!acc[category]) acc[category] = { name: category, items: [] };
+      acc[category].items.push({
+        name: item.name,
+        price: item.price,
+        shortdesc: item.shortdesc,
+      });
+      return acc;
+    }, {})
+  );
+
   return (
     <section className="mt-10 md:mt-24 lg:mt-32 container">
-      {/* Specials */}
+      {/* Specials Section */}
       <div className="grid grid-cols-1 gap-x-6 lg:grid-cols-12 items-start">
-        {/* Left: Offer Section (CTA and Description) */}
+        {/* Left: CTA */}
         <div className="flex flex-col items-center text-center lg:col-span-3 lg:items-start lg:text-left p-4 lg:p-0">
           <div className="flex items-center gap-2 mb-2 rounded-2xl py-1 px-2.5 border bg-foreground/5 backdrop-blur-xs">
             <UtensilsCrossed className="h-5 w-5" />
             <p className="text-xs font-medium uppercase tracking-wider">
-              {t("menu.badge")}
+              {t("specials.badge")}
             </p>
           </div>
           <h2
             id="specials"
             className="text-3xl font-extrabold tracking-tight text-foreground"
           >
-            {t("menu.title")}
+            {t("specials.title")}
           </h2>
           <p className="mt-3 mb-6 text-base text-muted-foreground max-w-sm lg:max-w-none">
-            {t("menu.subtitle")}
+            {t("specials.subtitle")}
           </p>
           <Link href="#reserve">
             <Button variant="secondary" className="border">
@@ -152,21 +60,22 @@ const Menu = () => {
             </Button>
           </Link>
         </div>
-        {/* Right: Carousel Section */}
+
+        {/* Right: Carousel */}
         <div className="relative lg:col-span-9">
-          <OffersCarousel items={specialDishes} />
+          <OffersCarousel items={specials} />
         </div>
       </div>
 
       <hr className="mt-10 mb-8" />
 
-      {/* Menu */}
+      {/* Menu Section */}
       <MotionReveal>
         <h2
           id="menu"
           className="text-3xl font-extrabold tracking-tight text-foreground mb-5 text-center md:text-left"
         >
-          {t("menu.menuCard")} <HandCoins className="inline-flex" />
+          {t("items.title")} <HandCoins className="inline-flex" />
         </h2>
         {menuCategories.map((category) => (
           <MenuList key={category.name} category={category} />

@@ -6,7 +6,7 @@ const Footer = () => {
   const t = useTranslations();
   return (
     <footer className="bg-gradient-to-t from-foreground to-foreground/95 text-background backdrop-blur-sm py-3 px-4 text-center text-sm">
-      {t("footer.copyright")}
+      {t("site.copyright")}
     </footer>
   );
 };

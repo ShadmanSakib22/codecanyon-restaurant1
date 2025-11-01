@@ -1,5 +1,5 @@
 // payload/collections/Users.ts
-import { CollectionConfig } from "payload";
+import type { CollectionConfig } from "payload";
 
 export const Users: CollectionConfig = {
   slug: "users",

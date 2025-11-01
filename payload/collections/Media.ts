@@ -1,8 +1,8 @@
-import { CollectionConfig } from "payload";
+import type { CollectionConfig } from "payload";
 
 export const Media: CollectionConfig = {
   slug: "media",
   upload: true,
-  admin: { useAsTitle: "filename" },
+  // admin: { useAsTitle: "filename" },
   fields: [],
 };

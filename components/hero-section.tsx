@@ -13,17 +13,21 @@ import MotionReveal from "@/components/ui/motion-reveal";
 import { useTranslations } from "next-intl";
 
 export default function HeroSection() {
-  const t = useTranslations();
-  //Todo: fetch from sanity
-  const map_url =
-    "https://www.google.com/maps/place/North+South+University/@23.8151107,90.4229817,17z/data=!3m1!4b1!4m6!3m5!1s0x3755c64c103a8093:0xd660a4f50365294a!8m2!3d23.8151107!4d90.4255566!16zL20vMDVqbXI1?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D";
-  const review_url =
-    "https://www.google.com/maps/place/North+South+University/@23.8151107,90.4255566,17z/data=!4m8!3m7!1s0x3755c64c103a8093:0xd660a4f50365294a!8m2!3d23.8151107!4d90.4255566!9m1!1b1!16zL20vMDVqbXI1?entry=ttu&g_ep=EgoyMDI1MTAxNC4wIKXMDSoASAFQAw%3D%3D";
+  const t = useTranslations("hero");
+  const ui = useTranslations("common");
+
+  const map_url = t("mapUrl");
+  const review_url = t("reviewUrl");
+  const social_url = t("socialUrl");
+
   return (
     <section className="relative w-full overflow-hidden min-h-screen flex flex-col justify-center pt-20">
       {/* Background Image */}
       <Image
-        src="/example-herobg.jpg"
+        src={
+          //t("backgroundImage.url") ||
+          "/example-herobg.jpg"
+        }
         alt="Sushi Background"
         fill
         priority
@@ -39,14 +43,14 @@ export default function HeroSection() {
           <div className="container py-8 flex flex-col sm:flex-row gap-5">
             <div className="max-w-3xl ">
               <div className="px-4 py-1.5 rounded-full min-w-[160px] border inline-flex text-secondary text-sm backdrop-blur-md">
-                {t("hero.badge")}
+                {t("badge")}
               </div>
 
               <h1 className="font-playfair text-5xl md:text-6xl lg:text-7xl font-medium text-secondary leading-tight drop-shadow-lg">
-                {t("hero.title")}
+                {t("title")}
               </h1>
               <p className="mt-6 text-xl lg:text-2xl text-secondary/90 leading-relaxed">
-                {t("hero.subtitle")}
+                {t("subtitle")}
               </p>
 
               {/*Buttons */}
@@ -57,7 +61,7 @@ export default function HeroSection() {
                     className="bg-transparent! text-secondary! hover:text-secondary/80 w-full sm:w-[200px]"
                     size={"lg"}
                   >
-                    {t("common.viewMenu")}
+                    {ui("viewMenu")}
                   </Button>
                 </Link>
                 <Link href="#reserve">
@@ -66,16 +70,18 @@ export default function HeroSection() {
                     size={"lg"}
                     className="w-full sm:w-[200px]!"
                   >
-                    <CalendarCheck2 className="size-5" />{" "}
-                    {t("common.reserveNow")}
+                    <CalendarCheck2 className="size-5" /> {ui("reserveNow")}
                   </Button>
                 </Link>
               </div>
             </div>
             <div className="flex flex-row sm:flex-col gap-6 ml-auto sm:border-l-4 border-dashed pl-4 md:pl-8 text-secondary">
-              <Link href={"/"} className="flex flex-col items-center gap-1">
+              <Link
+                href={social_url}
+                className="flex flex-col items-center gap-1"
+              >
                 <Instagram className="size-8 md:size-12 " />
-                {t("common.social")}
+                {ui("social")}
               </Link>
               <Link
                 href={map_url}
@@ -84,7 +90,7 @@ export default function HeroSection() {
                 className="flex flex-col items-center gap-1"
               >
                 <MapPin className="size-8 md:size-12 " />
-                {t("common.location")}
+                {ui("location")}
               </Link>
               <Link
                 href={review_url}
@@ -93,14 +99,14 @@ export default function HeroSection() {
                 className="flex flex-col items-center gap-1"
               >
                 <ThumbsUp className="size-8 md:size-12 " />
-                {t("common.review")}
+                {ui("review")}
               </Link>
               <Link
                 href={"#op-hrs"}
                 className="flex flex-col items-center gap-1 text-nowrap"
               >
                 <ClockFading className="size-8 md:size-12 " />
-                {t("common.openOn")}
+                {ui("openOn")}
               </Link>
             </div>
           </div>

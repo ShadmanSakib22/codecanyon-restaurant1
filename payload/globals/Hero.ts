@@ -1,4 +1,4 @@
-import { GlobalConfig } from "payload";
+import type { GlobalConfig } from "payload";
 
 export const Hero: GlobalConfig = {
   slug: "hero",
@@ -12,7 +12,7 @@ export const Hero: GlobalConfig = {
     { name: "badge", type: "text", localized: true },
     { name: "title", type: "text", localized: true },
     { name: "subtitle", type: "textarea", localized: true },
-    { name: "instagram", type: "text" },
+    { name: "socialUrl", type: "text" },
     { name: "mapUrl", type: "text" },
     { name: "reviewUrl", type: "text" },
   ],

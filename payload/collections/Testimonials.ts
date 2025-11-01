@@ -1,9 +1,11 @@
-import { CollectionConfig } from "payload";
+import type { CollectionConfig } from "payload";
 
 export const Testimonials: CollectionConfig = {
   slug: "testimonials",
-  admin: { useAsTitle: "user" },
+  // admin: { useAsTitle: "user" },
   fields: [
+    { name: "title", type: "text", localized: true },
+    { name: "subtitle", type: "text", localized: true },
     {
       name: "mainImg",
       type: "upload",
@@ -15,6 +17,6 @@ export const Testimonials: CollectionConfig = {
       relationTo: "media",
     },
     { name: "user", type: "text" },
-    { name: "desc", type: "textarea" },
+    { name: "feedback", type: "textarea" },
   ],
 };

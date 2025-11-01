@@ -2,6 +2,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { PhoneCall, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import LanguageDropdown from "@/components/function/lang-dropdown";
@@ -70,10 +71,23 @@ const Navbar = () => {
         }
       >
         <div className="container flex justify-between items-center">
-          {/* Brand/Logo Name or Image - fetch from cms if image exist, display img. else display text*/}
-          <Link href="/" className="text-xl font-bold tracking-wider">
-            {t("common.logo")}
-          </Link>
+          {t("site.logoType") === "text" ? (
+            <Link href="/" className="text-xl font-bold tracking-wider">
+              {t("site.logoText")}
+            </Link>
+          ) : (
+            <Link href="/">
+              <Image
+                src={
+                  // t("site.logoImage") ||
+                  "https://placehold.co/120x80?text=Logo"
+                }
+                alt={t("site.companyName")}
+                width={120}
+                height={80}
+              />
+            </Link>
+          )}
 
           {/* Desktop Navigation Links and Actions */}
           <ul className="hidden md:flex items-center gap-8">
@@ -144,9 +158,23 @@ const Navbar = () => {
         <div className="flex flex-col h-full pt-2 px-6">
           <div className="flex gap-5 mb-7">
             {/* Brand/Logo Name or Image */}
-            <Link href="/" className="text-2xl font-bold tracking-wider">
-              {t("common.logo")}
-            </Link>
+            {t("site.logoType") === "text" ? (
+              <Link href="/" className="text-xl font-bold tracking-wider">
+                {t("site.logoText")}
+              </Link>
+            ) : (
+              <Link href="/">
+                <Image
+                  src={
+                    // t("site.logoImage") ||
+                    "https://placehold.co/120x80?text=Logo"
+                  }
+                  alt={t("site.companyName")}
+                  width={120}
+                  height={80}
+                />
+              </Link>
+            )}
             <button
               onClick={toggleMobileMenu}
               className="ml-auto md:hidden p-2 rounded-md transition-colors duration-200 hover:bg-secondary/10"

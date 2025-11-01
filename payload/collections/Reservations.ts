@@ -1,14 +1,27 @@
-import { CollectionConfig } from "payload";
+import type { CollectionConfig } from "payload";
 
 export const Reservations: CollectionConfig = {
   slug: "reservations",
-  admin: { useAsTitle: "name" },
+  // admin: { useAsTitle: "name" },
+
+  access: {
+    create: () => true, // allow anyone to submit
+    read: () => true, // optionally allow public read
+    update: () => false,
+    delete: () => false,
+  },
+
   fields: [
+    // Reservation form submissions
     { name: "name", type: "text", required: true },
     { name: "phone", type: "text", required: true },
     { name: "guests", type: "number", required: true },
     { name: "date", type: "date", required: true },
     { name: "time", type: "text", required: true },
+    {
+      name: "message",
+      type: "textarea",
+    },
     {
       name: "status",
       type: "select",

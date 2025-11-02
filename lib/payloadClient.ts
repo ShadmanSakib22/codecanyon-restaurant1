@@ -3,9 +3,11 @@ import payload, { Payload } from "payload";
 import config from "@/payload/payload.config";
 
 // Caching mechanism to ensure Payload is initialized only once
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let cached = (global as any).payload;
 
 if (!cached) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cached = (global as any).payload = {
     client: null as Payload | null,
     promise: null as Promise<Payload> | null,

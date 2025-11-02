@@ -132,12 +132,11 @@ const ReservationForm = () => {
                   id="guests"
                   name="guests"
                   defaultValue="2"
-                  className="w-full pl-10 pr-10 py-2 h-9 rounded-md border border-foreground/40 bg-background text-foreground text-sm shadow-sm focus:ring-1 focus:ring-foreground/40"
+                  className="appearance-none w-full pl-10 pr-10 py-2 h-9 rounded-md border border-foreground/40 bg-background text-foreground text-sm shadow-sm focus:ring-1 focus:ring-foreground/40"
                 >
                   {[...Array(6)].map((_, i) => (
                     <option key={i} value={`${i + 1}`}>
-                      {i + 1}{" "}
-                      {i === 0 ? t("common.person") : t("common.people")}
+                      {i + 1} {i === 0 ? t("person") : t("people")}
                     </option>
                   ))}
                 </select>

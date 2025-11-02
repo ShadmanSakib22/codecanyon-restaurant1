@@ -1,5 +1,6 @@
+// middleware.ts
 import createMiddleware from "next-intl/middleware";
-import { locales } from "@/lib/i18n";
+import { locales } from "@/lib/locales";
 
 export default createMiddleware({
   locales,
@@ -8,5 +9,7 @@ export default createMiddleware({
 });
 
 export const config = {
-  matcher: ["/((?!admin|api|_next|uploads|favicon.ico).*)"],
+  matcher: [
+    "/((?!admin|api|_next|uploads|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
 };

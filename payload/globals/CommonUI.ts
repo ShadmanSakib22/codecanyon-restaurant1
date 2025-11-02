@@ -1,3 +1,4 @@
+// payload/globals/CommonUI.ts
 import type { GlobalConfig } from "payload";
 
 export const CommonUI: GlobalConfig = {
@@ -7,21 +8,22 @@ export const CommonUI: GlobalConfig = {
     {
       name: "common",
       type: "group",
+      localized: true,
       admin: {
         description:
           "⚠️ These texts are used throughout the website interface. Changing them may affect UI labels, buttons, and links. Proceed carefully!",
       },
       fields: [
-        { name: "contactUs", type: "text" },
-        { name: "viewMenu", type: "text" },
-        { name: "reserveNow", type: "text" },
-        { name: "social", type: "text" },
-        { name: "location", type: "text" },
-        { name: "review", type: "text" },
-        { name: "reviews", type: "text" },
-        { name: "menu", type: "text" },
-        { name: "specials", type: "text" },
-        { name: "openOn", type: "text" },
+        { name: "contactUs", type: "text", localized: true },
+        { name: "viewMenu", type: "text", localized: true },
+        { name: "reserveNow", type: "text", localized: true },
+        { name: "social", type: "text", localized: true },
+        { name: "location", type: "text", localized: true },
+        { name: "review", type: "text", localized: true },
+        { name: "reviews", type: "text", localized: true },
+        { name: "menu", type: "text", localized: true },
+        { name: "specials", type: "text", localized: true },
+        { name: "openOn", type: "text", localized: true },
       ],
     },
   ],

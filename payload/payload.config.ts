@@ -10,7 +10,6 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical";
 // collections
 import { Users } from "./collections/Users.ts";
 import { Reservations } from "./collections/Reservations.ts";
-import { ReservationUI } from "./collections/ReservationUI.ts";
 import { MenuItems } from "./collections/MenuItems.ts";
 import { Specials } from "./collections/Specials.ts";
 import { Testimonials } from "./collections/Testimonials.ts";
@@ -20,6 +19,7 @@ import { SiteSettings } from "./globals/SiteSettings.ts";
 import { Hero } from "./globals/Hero.ts";
 import { Contact } from "./globals/Contact.ts";
 import { OperatingHours } from "./globals/OperatingHours.ts";
+import { ReservationUI } from "./globals/ReservationUI.ts";
 import { CommonUI } from "./globals/CommonUI.ts";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -59,17 +59,16 @@ export default buildConfig({
 
   sharp,
 
-  collections: [
-    Users,
-    Media,
-    MenuItems,
-    Specials,
-    Testimonials,
-    Reservations,
-    ReservationUI,
-  ],
+  collections: [Users, Media, MenuItems, Specials, Testimonials, Reservations],
 
-  globals: [SiteSettings, Hero, Contact, OperatingHours, CommonUI],
+  globals: [
+    SiteSettings,
+    Hero,
+    Contact,
+    OperatingHours,
+    ReservationUI,
+    CommonUI,
+  ],
 
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
   typescript: {

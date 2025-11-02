@@ -73,7 +73,6 @@ export interface Config {
     specials: Special;
     testimonials: Testimonial;
     reservations: Reservation;
-    'reservation-ui': ReservationUi;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -87,7 +86,6 @@ export interface Config {
     specials: SpecialsSelect<false> | SpecialsSelect<true>;
     testimonials: TestimonialsSelect<false> | TestimonialsSelect<true>;
     reservations: ReservationsSelect<false> | ReservationsSelect<true>;
-    'reservation-ui': ReservationUiSelect<false> | ReservationUiSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -101,6 +99,7 @@ export interface Config {
     hero: Hero;
     contact: Contact;
     'operating-hours': OperatingHour;
+    'reservation-ui': ReservationUi;
     'common-ui': CommonUi;
   };
   globalsSelect: {
@@ -108,6 +107,7 @@ export interface Config {
     hero: HeroSelect<false> | HeroSelect<true>;
     contact: ContactSelect<false> | ContactSelect<true>;
     'operating-hours': OperatingHoursSelect<false> | OperatingHoursSelect<true>;
+    'reservation-ui': ReservationUiSelect<false> | ReservationUiSelect<true>;
     'common-ui': CommonUiSelect<false> | CommonUiSelect<true>;
   };
   locale: 'en' | 'jp';
@@ -243,39 +243,6 @@ export interface Reservation {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "reservation-ui".
- */
-export interface ReservationUi {
-  id: number;
-  validation?: {
-    missingFields?: string | null;
-  };
-  success?: {
-    message?: string | null;
-  };
-  error?: {
-    message?: string | null;
-  };
-  bookTable?: string | null;
-  bookTableSubtitle?: string | null;
-  fullName?: string | null;
-  namePlaceholder?: string | null;
-  numberOfGuests?: string | null;
-  person?: string | null;
-  people?: string | null;
-  largerPartyNote?: string | null;
-  date?: string | null;
-  time?: string | null;
-  specialRequests?: string | null;
-  specialRequestsPlaceholder?: string | null;
-  submitting?: string | null;
-  confirmReservation?: string | null;
-  confirmationNote?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -321,10 +288,6 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'reservations';
         value: number | Reservation;
-      } | null)
-    | ({
-        relationTo: 'reservation-ui';
-        value: number | ReservationUi;
       } | null)
     | ({
         relationTo: 'payload-kv';
@@ -471,44 +434,6 @@ export interface ReservationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "reservation-ui_select".
- */
-export interface ReservationUiSelect<T extends boolean = true> {
-  validation?:
-    | T
-    | {
-        missingFields?: T;
-      };
-  success?:
-    | T
-    | {
-        message?: T;
-      };
-  error?:
-    | T
-    | {
-        message?: T;
-      };
-  bookTable?: T;
-  bookTableSubtitle?: T;
-  fullName?: T;
-  namePlaceholder?: T;
-  numberOfGuests?: T;
-  person?: T;
-  people?: T;
-  largerPartyNote?: T;
-  date?: T;
-  time?: T;
-  specialRequests?: T;
-  specialRequestsPlaceholder?: T;
-  submitting?: T;
-  confirmReservation?: T;
-  confirmationNote?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv_select".
  */
 export interface PayloadKvSelect<T extends boolean = true> {
@@ -613,6 +538,39 @@ export interface OperatingHour {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reservation-ui".
+ */
+export interface ReservationUi {
+  id: number;
+  bookTable?: string | null;
+  bookTableSubtitle?: string | null;
+  fullName?: string | null;
+  namePlaceholder?: string | null;
+  numberOfGuests?: string | null;
+  person?: string | null;
+  people?: string | null;
+  largerPartyNote?: string | null;
+  date?: string | null;
+  time?: string | null;
+  specialRequests?: string | null;
+  specialRequestsPlaceholder?: string | null;
+  submitting?: string | null;
+  confirmReservation?: string | null;
+  confirmationNote?: string | null;
+  validation?: {
+    missingFields?: string | null;
+  };
+  success?: {
+    message?: string | null;
+  };
+  error?: {
+    message?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "common-ui".
  */
 export interface CommonUi {
@@ -697,6 +655,45 @@ export interface OperatingHoursSelect<T extends boolean = true> {
   slot3?: T;
   slot3time?: T;
   disclaimer?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "reservation-ui_select".
+ */
+export interface ReservationUiSelect<T extends boolean = true> {
+  bookTable?: T;
+  bookTableSubtitle?: T;
+  fullName?: T;
+  namePlaceholder?: T;
+  numberOfGuests?: T;
+  person?: T;
+  people?: T;
+  largerPartyNote?: T;
+  date?: T;
+  time?: T;
+  specialRequests?: T;
+  specialRequestsPlaceholder?: T;
+  submitting?: T;
+  confirmReservation?: T;
+  confirmationNote?: T;
+  validation?:
+    | T
+    | {
+        missingFields?: T;
+      };
+  success?:
+    | T
+    | {
+        message?: T;
+      };
+  error?:
+    | T
+    | {
+        message?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

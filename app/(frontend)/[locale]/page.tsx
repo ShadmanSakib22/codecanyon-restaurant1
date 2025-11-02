@@ -11,11 +11,10 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        {/*Hero Section */}
         <HeroSection />
-        <Menu />
+        {/* <Menu /> */}
       </main>
-      <MasonryGridDemo />
+      {/* <MasonryGridDemo />*/}
       <Contact />
       <Footer />
     </>

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Star } from "lucide-react";
 
 export interface CardItemProps {
+  id: string | number;
   name: string;
   desc: string;
   image?: { url: string };

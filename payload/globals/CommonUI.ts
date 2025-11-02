@@ -24,6 +24,10 @@ export const CommonUI: GlobalConfig = {
         { name: "menu", type: "text", localized: true },
         { name: "specials", type: "text", localized: true },
         { name: "openOn", type: "text", localized: true },
+
+        //testimonial
+        { name: "testimonial-title", type: "text", localized: true },
+        { name: "testimonial-subtitle", type: "text", localized: true },
       ],
     },
   ],

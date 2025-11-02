@@ -14,7 +14,7 @@ export default function Home() {
         <HeroSection />
         <Menu />
       </main>
-      {/* <MasonryGridDemo />*/}
+      <MasonryGridDemo />
       <Contact />
       <Footer />
     </>

@@ -215,8 +215,6 @@ export interface Special {
  */
 export interface Testimonial {
   id: number;
-  title?: string | null;
-  subtitle?: string | null;
   mainImg?: (number | null) | Media;
   userImg?: (number | null) | Media;
   user?: string | null;
@@ -404,8 +402,6 @@ export interface SpecialsSelect<T extends boolean = true> {
  * via the `definition` "testimonials_select".
  */
 export interface TestimonialsSelect<T extends boolean = true> {
-  title?: T;
-  subtitle?: T;
   mainImg?: T;
   userImg?: T;
   user?: T;
@@ -600,6 +596,8 @@ export interface CommonUi {
     menu?: string | null;
     specials?: string | null;
     openOn?: string | null;
+    'testimonial-title'?: string | null;
+    'testimonial-subtitle'?: string | null;
   };
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -740,6 +738,8 @@ export interface CommonUiSelect<T extends boolean = true> {
         menu?: T;
         specials?: T;
         openOn?: T;
+        'testimonial-title'?: T;
+        'testimonial-subtitle'?: T;
       };
   updatedAt?: T;
   createdAt?: T;

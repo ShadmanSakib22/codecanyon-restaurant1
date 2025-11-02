@@ -4,8 +4,6 @@ export const Testimonials: CollectionConfig = {
   slug: "testimonials",
   // admin: { useAsTitle: "user" },
   fields: [
-    { name: "title", type: "text", localized: true },
-    { name: "subtitle", type: "text", localized: true },
     {
       name: "mainImg",
       type: "upload",

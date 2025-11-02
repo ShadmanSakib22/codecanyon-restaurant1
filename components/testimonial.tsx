@@ -45,7 +45,7 @@ const TestimonialCard = ({ userImg, user, feedback, mainImg }: Testimonial) => (
 );
 
 export default function MasonryGridDemo() {
-  const t = useTranslations("testimonials");
+  const t = useTranslations();
   const messages = useMessages();
 
   const testimonials = (messages.testimonials || []) as Testimonial[];
@@ -70,9 +70,11 @@ export default function MasonryGridDemo() {
     <section id="reviews" className="mt-10 md:mt-24 lg:mt-32 container">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-extrabold tracking-tight text-foreground mb-2 text-center">
-          {t("title")}
+          {t("common.testimonial-title")}
         </h2>
-        <p className="mb-8 text-foreground/70 text-center">{t("subtitle")}</p>
+        <p className="mb-8 text-foreground/70 text-center">
+          {t("common.testimonial-subtitle")}
+        </p>
 
         <MasonryGrid columns={columns} gap={4}>
           {testimonials.map((card, idx) => (

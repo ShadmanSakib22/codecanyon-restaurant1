@@ -17,6 +17,7 @@ import { Media } from "./collections/Media.ts";
 // globals
 import { SiteSettings } from "./globals/SiteSettings.ts";
 import { Hero } from "./globals/Hero.ts";
+import { MenuUI } from "./globals/MenuUI.ts";
 import { Contact } from "./globals/Contact.ts";
 import { OperatingHours } from "./globals/OperatingHours.ts";
 import { ReservationUI } from "./globals/ReservationUI.ts";
@@ -64,6 +65,7 @@ export default buildConfig({
   globals: [
     SiteSettings,
     Hero,
+    MenuUI,
     Contact,
     OperatingHours,
     ReservationUI,

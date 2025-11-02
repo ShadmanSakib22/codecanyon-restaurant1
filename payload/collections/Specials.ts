@@ -5,23 +5,6 @@ export const Specials: CollectionConfig = {
   // admin: { useAsTitle: "name" },
   fields: [
     {
-      name: "badge",
-      type: "text",
-      required: true,
-      localized: true,
-    },
-    {
-      name: "title",
-      type: "text",
-      required: true,
-      localized: true,
-    },
-    {
-      name: "subtitle",
-      type: "textarea",
-      localized: true,
-    },
-    {
       name: "name",
       type: "text",
       required: true,

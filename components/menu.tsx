@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 
 const Menu = () => {
-  const t = useTranslations("menu");
+  const t = useTranslations();
 
   // Specials
   const rawSpecials = t.raw("specials");
@@ -42,17 +42,17 @@ const Menu = () => {
           <div className="flex items-center gap-2 mb-2 rounded-2xl py-1 px-2.5 border bg-foreground/5 backdrop-blur-xs">
             <UtensilsCrossed className="h-5 w-5" />
             <p className="text-xs font-medium uppercase tracking-wider">
-              {t("specials.badge")}
+              {t("specialsUi.badge")}
             </p>
           </div>
           <h2
             id="specials"
             className="text-3xl font-extrabold tracking-tight text-foreground"
           >
-            {t("specials.title")}
+            {t("specialsUi.title")}
           </h2>
           <p className="mt-3 mb-6 text-base text-muted-foreground max-w-sm lg:max-w-none">
-            {t("specials.subtitle")}
+            {t("specialsUi.subtitle")}
           </p>
           <Link href="#reserve">
             <Button variant="secondary" className="border">
@@ -75,7 +75,7 @@ const Menu = () => {
           id="menu"
           className="text-3xl font-extrabold tracking-tight text-foreground mb-5 text-center md:text-left"
         >
-          {t("items.title")} <HandCoins className="inline-flex" />
+          {t("specialsUi.menuCard")} <HandCoins className="inline-flex" />
         </h2>
         {menuCategories.map((category) => (
           <MenuList key={category.name} category={category} />

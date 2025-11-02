@@ -97,6 +97,7 @@ export interface Config {
   globals: {
     'site-settings': SiteSetting;
     hero: Hero;
+    'menu-ui': MenuUi;
     contact: Contact;
     'operating-hours': OperatingHour;
     'reservation-ui': ReservationUi;
@@ -105,6 +106,7 @@ export interface Config {
   globalsSelect: {
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
     hero: HeroSelect<false> | HeroSelect<true>;
+    'menu-ui': MenuUiSelect<false> | MenuUiSelect<true>;
     contact: ContactSelect<false> | ContactSelect<true>;
     'operating-hours': OperatingHoursSelect<false> | OperatingHoursSelect<true>;
     'reservation-ui': ReservationUiSelect<false> | ReservationUiSelect<true>;
@@ -199,9 +201,6 @@ export interface MenuItem {
  */
 export interface Special {
   id: number;
-  badge: string;
-  title: string;
-  subtitle?: string | null;
   name: string;
   desc?: string | null;
   image?: (number | null) | Media;
@@ -392,9 +391,6 @@ export interface MenuItemsSelect<T extends boolean = true> {
  * via the `definition` "specials_select".
  */
 export interface SpecialsSelect<T extends boolean = true> {
-  badge?: T;
-  title?: T;
-  subtitle?: T;
   name?: T;
   desc?: T;
   image?: T;
@@ -503,6 +499,21 @@ export interface Hero {
   socialUrl?: string | null;
   mapUrl?: string | null;
   reviewUrl?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * ⚠️ These texts are used in the UI of featured/specials part of the website. Proceed carefully!
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menu-ui".
+ */
+export interface MenuUi {
+  id: number;
+  badge: string;
+  title: string;
+  subtitle?: string | null;
+  menuCard?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -625,6 +636,19 @@ export interface HeroSelect<T extends boolean = true> {
   socialUrl?: T;
   mapUrl?: T;
   reviewUrl?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "menu-ui_select".
+ */
+export interface MenuUiSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  menuCard?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

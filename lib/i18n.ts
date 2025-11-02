@@ -19,6 +19,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
     const [
       siteSettings,
       hero,
+      menuUI,
       contact,
       operatingHours,
       reservationUI,
@@ -30,6 +31,10 @@ export default getRequestConfig(async ({ requestLocale }) => {
       }),
       payload.findGlobal({
         slug: "hero",
+        locale: safeLocale,
+      }),
+      payload.findGlobal({
+        slug: "menu-ui",
         locale: safeLocale,
       }),
       payload.findGlobal({
@@ -73,10 +78,10 @@ export default getRequestConfig(async ({ requestLocale }) => {
     const messages = {
       common: commonUI?.common || {},
       hero: hero || {},
-      menu: {
-        items: menuItems?.docs || [],
-        specials: specials?.docs || [],
-      },
+      specialsUi: menuUI || {},
+      items: menuItems?.docs || [],
+      specials: specials?.docs || [],
+
       contact: contact || {},
       operatingHours: operatingHours || {},
       testimonials: testimonials?.docs || [],

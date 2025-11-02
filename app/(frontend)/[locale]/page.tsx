@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        {/* <Menu /> */}
+        <Menu />
       </main>
       {/* <MasonryGridDemo />*/}
       <Contact />

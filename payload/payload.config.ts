@@ -74,6 +74,8 @@ export default buildConfig({
     CommonUI,
   ],
 
+  csrf: [process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000"],
+
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL,
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),

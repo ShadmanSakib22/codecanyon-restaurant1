@@ -26,16 +26,18 @@ import { CommonUI } from "./globals/CommonUI.ts";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const dbFilename = process.env.DATABASE_FILENAME || "payload.sqlite";
-const absolutePath = path.join(process.cwd(), "payload", dbFilename);
-const posixPath = absolutePath.replace(/\\/g, "/");
+// const dbFilename = process.env.DATABASE_FILENAME || "payload.sqlite";
+// const absolutePath = path.join(process.cwd(), "payload", dbFilename);
+// const posixPath = absolutePath.replace(/\\/g, "/");
 
 export default buildConfig({
   editor: lexicalEditor(),
 
   db: sqliteAdapter({
     client: {
-      url: `file:${posixPath}`,
+      // url: `file:${posixPath}`,
+      url: process.env.DATABASE_URL || "",
+      authToken: process.env.DATABASE_TOKEN || "",
     },
   }),
   secret: process.env.PAYLOAD_SECRET || "dev-key",

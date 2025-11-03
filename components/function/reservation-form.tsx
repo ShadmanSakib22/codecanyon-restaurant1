@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { User, Users, Calendar, Timer, ChevronDown } from "lucide-react";
+import { User, Users, Calendar, Timer, ChevronDown, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -56,7 +56,7 @@ const ReservationForm = () => {
 
     try {
       setLoading(true);
-      const res = await fetch("/api/reservations", {
+      const res = await fetch("/api/submit-reservation", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -101,10 +101,10 @@ const ReservationForm = () => {
 
       <CardContent>
         <form className="space-y-6" onSubmit={handleSubmit}>
-          {/* Name and Guests */}
+          {/* Name, Phone, and Guests */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Name */}
-            <div className="space-y-2">
+            <div className="space-y-2 sm:col-span-2">
               <Label htmlFor="name" className="text-foreground/70">
                 {t("fullName")}
               </Label>
@@ -116,6 +116,23 @@ const ReservationForm = () => {
                   name="name"
                   className="w-full pl-10 border-foreground/40 focus-visible:ring-foreground/40 text-foreground"
                   placeholder={t("namePlaceholder")}
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="phone" className="text-foreground/70">
+                {t("phone")}
+              </Label>
+              <div className="relative">
+                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-foreground/40" />
+                <Input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  className="w-full pl-10 border-foreground/40 focus-visible:ring-foreground/40 text-foreground"
+                  placeholder="(123) 456-7890"
                   required
                 />
               </div>

@@ -7,8 +7,8 @@ export const Reservations: CollectionConfig = {
   access: {
     create: () => true, // allow anyone to submit
     read: () => true, // optionally allow public read
-    update: () => false,
-    delete: () => false,
+    update: ({ req }) => !!req.user, // only authenticated users
+    delete: ({ req }) => !!req.user, // only authenticated users
   },
 
   fields: [

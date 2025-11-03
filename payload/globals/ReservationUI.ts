@@ -20,6 +20,11 @@ export const ReservationUI: GlobalConfig = {
       localized: true,
     },
     {
+      name: "phone",
+      type: "text",
+      localized: true,
+    },
+    {
       name: "namePlaceholder",
       type: "text",
       localized: true,

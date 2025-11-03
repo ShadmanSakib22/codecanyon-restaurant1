@@ -552,6 +552,7 @@ export interface ReservationUi {
   bookTable?: string | null;
   bookTableSubtitle?: string | null;
   fullName?: string | null;
+  phone?: string | null;
   namePlaceholder?: string | null;
   numberOfGuests?: string | null;
   person?: string | null;
@@ -689,6 +690,7 @@ export interface ReservationUiSelect<T extends boolean = true> {
   bookTable?: T;
   bookTableSubtitle?: T;
   fullName?: T;
+  phone?: T;
   namePlaceholder?: T;
   numberOfGuests?: T;
   person?: T;

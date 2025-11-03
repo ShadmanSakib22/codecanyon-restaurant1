@@ -2,6 +2,10 @@ import type { GlobalConfig } from "payload";
 
 export const Contact: GlobalConfig = {
   slug: "contact",
+  access: {
+    read: () => true, // CRITICAL: Allows public read for the frontend
+    update: () => true, // Allows admin users to edit/update data
+  },
   label: "Contact Info",
   fields: [
     { name: "title", type: "text", localized: true },

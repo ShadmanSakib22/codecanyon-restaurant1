@@ -3,6 +3,10 @@ import type { GlobalConfig } from "payload";
 
 export const CommonUI: GlobalConfig = {
   slug: "common-ui",
+  access: {
+    read: () => true, // CRITICAL: Allows public read for the frontend
+    update: () => true, // Allows admin users to edit/update data
+  },
   label: "Common UI Texts",
   fields: [
     {

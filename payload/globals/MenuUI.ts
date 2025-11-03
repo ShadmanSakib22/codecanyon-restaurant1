@@ -2,6 +2,10 @@ import type { GlobalConfig } from "payload";
 
 export const MenuUI: GlobalConfig = {
   slug: "menu-ui",
+  access: {
+    read: () => true, // CRITICAL: Allows public read for the frontend
+    update: () => true, // Allows admin users to edit/update data
+  },
   label: "Special Menu UI",
   admin: {
     description:

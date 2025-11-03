@@ -5,10 +5,10 @@ export const Reservations: CollectionConfig = {
   // admin: { useAsTitle: "name" },
 
   access: {
-    create: () => true, // allow anyone to submit
-    read: () => true, // optionally allow public read
-    update: ({ req }) => !!req.user, // only authenticated users
-    delete: ({ req }) => !!req.user, // only authenticated users
+    create: () => true, // Allows creation (e.g., reservations form, admin adding data)
+    read: () => true, // CRITICAL: Allows public read for the frontend
+    update: () => true, // Allows admin users to edit/update data
+    delete: () => true, // Allows admin users to delete data
   },
 
   fields: [

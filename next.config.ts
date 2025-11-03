@@ -13,9 +13,17 @@ const nextConfig: NextConfig = {
         protocol: "http",
         hostname: "localhost",
       },
-      { protocol: "https", hostname: "images.unsplash.com" },
       { protocol: "https", hostname: "placehold.co" },
-      { protocol: "https", hostname: "randomuser.me" },
+      {
+        // Your Preview URL Domain
+        protocol: "https",
+        hostname: "codecanyon-restaurant1-7ug1yllkw.vercel.app",
+      },
+      {
+        // Your Production/Custom Domain
+        protocol: "https",
+        hostname: "codecanyon-restaurant1.vercel.app",
+      },
     ],
   },
   experimental: {

@@ -40,7 +40,7 @@ export default buildConfig({
       authToken: process.env.DATABASE_TOKEN || "",
     },
   }),
-  secret: process.env.PAYLOAD_SECRET || "dev-key",
+  secret: process.env.PAYLOAD_SECRET || "",
 
   localization: {
     locales: ["en", "jp"],

@@ -10,19 +10,28 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: "https",
+        hostname: "utfs.io", // Older UploadThing domain
+      },
+      {
+        protocol: "https",
+        hostname: "**.ufs.sh", // New UploadThing domain (App-specific subdomains)
+      },
+      {
+        protocol: "https",
+        hostname: "uploadthing.com",
+      },
+      {
         protocol: "http",
         hostname: "localhost",
       },
-      { protocol: "https", hostname: "placehold.co" },
       {
-        // Your Preview URL Domain
         protocol: "https",
-        hostname: "codecanyon-restaurant1-7ug1yllkw.vercel.app",
+        hostname: "placehold.co",
       },
       {
-        // Your Production/Custom Domain
         protocol: "https",
-        hostname: "codecanyon-restaurant1.vercel.app",
+        hostname: "**.vercel.app", // This covers all Vercel preview/branch URLs
       },
     ],
   },

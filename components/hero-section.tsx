@@ -29,6 +29,7 @@ export default async function HeroSection() {
         fill
         priority
         className="object-cover object-center absolute z-[-2]"
+        unoptimized
       />
 
       {/* Gradient Overlay */}

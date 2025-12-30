@@ -22,6 +22,7 @@ export const ItemCard = ({ item }: { item: CardItemProps }) => (
           width={256}
           height={144}
           className="h-36 w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          unoptimized
         />
         {item.rating && (
           <div className="absolute bottom-2 right-2 flex items-center gap-1 rounded-full bg-foreground/60 px-2 py-0.5 text-xs font-bold text-background shadow-md">

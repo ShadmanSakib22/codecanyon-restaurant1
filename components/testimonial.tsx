@@ -22,6 +22,7 @@ const TestimonialCard = ({ userImg, user, feedback, mainImg }: Testimonial) => (
       height={1200}
       className="w-full h-auto object-cover"
       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+      unoptimized
     />
     <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 via-foreground/20 to-transparent" />
     <div className="absolute top-0 left-0 p-4 text-background">
@@ -33,6 +34,7 @@ const TestimonialCard = ({ userImg, user, feedback, mainImg }: Testimonial) => (
             fill
             sizes="32px"
             className="object-cover"
+            unoptimized
           />
         </div>
         <span className="font-semibold text-sm drop-shadow-md">{user}</span>

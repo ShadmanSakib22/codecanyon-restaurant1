@@ -85,6 +85,7 @@ const Navbar = () => {
                 alt={t("site.companyName")}
                 width={120}
                 height={80}
+                unoptimized
               />
             </Link>
           )}
@@ -172,6 +173,7 @@ const Navbar = () => {
                   alt={t("site.companyName")}
                   width={120}
                   height={80}
+                  unoptimized
                 />
               </Link>
             )}
